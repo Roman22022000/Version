@@ -115,54 +115,6 @@
     }
 
     /* =========================
-       THEORY BLOCK
-       ========================= */
-
-    .theory-block {
-      width: 100%;
-
-      background-color: var(--panel-darker);
-
-      padding: 4rem 2rem;
-
-      border: none;
-      box-shadow: none;
-
-      margin: 0 0 3rem;
-
-      text-align: center;
-
-      background-image: none;
-    }
-
-    .theory-block h2 {
-      font-size: clamp(1.8rem, 5vw, 2.5rem);
-
-      line-height: 1.2;
-
-      margin: 0 0 1.25rem;
-
-      text-transform: uppercase;
-
-      color: var(--text-main);
-
-      text-align: center;
-    }
-
-    .placeholder-text {
-      color: var(--text-muted);
-
-      font-style: italic;
-
-      font-size: 1.1rem;
-
-      max-width: 800px;
-      margin: 0 auto;
-
-      text-align: center;
-    }
-
-    /* =========================
        ERROR BLOCK
        ========================= */
 
@@ -380,8 +332,6 @@
     header::after,
     main::before,
     main::after,
-    .theory-block::before,
-    .theory-block::after,
     .error-block::before,
     .error-block::after,
     .prompt-block::before,
@@ -415,10 +365,6 @@
 
       .tagline {
         font-size: 1rem;
-      }
-
-      .theory-block {
-        padding: 3rem 1.25rem;
       }
 
       .error-block {
@@ -458,22 +404,6 @@
 
 
   <main>
-
-    <!-- =========================
-         BLOCK 1 — THEORY
-         ========================= -->
-
-    <section class="theory-block">
-
-      <h2>Теория 6 пальцев</h2>
-
-      <p class="placeholder-text">
-        Здесь будет текст-пустышка. Вы можете заменить этот абзац
-        на реальный контент.
-      </p>
-
-    </section>
-
 
     <!-- =========================
          BLOCK 2 — ERROR
