@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Version</title>
+
+  <style>
+    :root {
+      --bg-dark: #121212;
+      --panel-darker: #1a1a1a;
+      --text-main: #e0e0e0;
+      --text-muted: #a0a0a0;
+      --accent: #c0c0c0;
+
+      --error-red: #ff3b30;
+      --prompt-green: #30d158;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-main);
+
+      font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      line-height: 1.5;
+      min-height: 100vh;
+
+      display: flex;
+      flex-direction: column;
+
+      background-image: none;
+    }
+
+    /* =========================
+       HEADER
+       ========================= */
+
+    header {
+      width: 100%;
+      padding: 4rem 1rem 3.5rem;
+
+      text-align: center;
+
+      border: none;
+      box-shadow: none;
+
+      background: transparent;
+      background-image: none;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 10vw, 5rem);
+      line-height: 1;
+
+      letter-spacing: -2px;
+      font-weight: 700;
+
+      text-transform: uppercase;
+
+      margin: 0 0 1.5rem;
+
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+
+    .tagline {
+      display: block;
+
+      font-size: 1.125rem;
+      color: var(--accent);
+
+      max-width: 800px;
+      margin: 0 auto;
+
+      border: none;
+      padding: 0;
+
+      text-align: center;
+    }
+
+    /* =========================
+       MAIN
+       ========================= */
+
+    main {
+      flex: 1;
+      width: 100%;
+
+      padding: 0;
+
+      border: none;
+
+      background: transparent;
+      background-image: none;
+    }
+
+    /* =========================
+       THEORY BLOCK
+       ========================= */
+
+    .theory-block {
+      width: 100%;
+
+      background-color: var(--panel-darker);
+
+      padding: 4rem 2rem;
+
+      border: none;
+      box-shadow: none;
+
+      margin: 0 0 3rem;
+
+      text-align: center;
+
+      background-image: none;
+    }
+
+    .theory-block h2 {
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+
+      line-height: 1.2;
+
+      margin: 0 0 1.25rem;
+
+      text-transform: uppercase;
+
+      color: var(--text-main);
+
+      text-align: center;
+    }
+
+    .placeholder-text {
+      color: var(--text-muted);
+
+      font-style: italic;
+
+      font-size: 1.1rem;
+
+      max-width: 800px;
+      margin: 0 auto;
+
+      text-align: center;
+    }
+
+    /* =========================
+       ERROR BLOCK
+       ========================= */
+
+    .error-block {
+      width: 100%;
+
+      background-color: #151515;
+
+      padding: 3rem 2rem;
+
+      border: none;
+      border-left: none;
+
+      box-shadow: none;
+
+      background-image: none;
+
+      margin-bottom: 3rem;
+    }
+
+    .error-block h2 {
+      font-size: 2rem;
+
+      margin-bottom: 2rem;
+
+      text-transform: uppercase;
+
+      color: var(--error-red);
+
+      letter-spacing: 1px;
+
+      text-align: center;
+    }
+
+    .error-list {
+      list-style: none;
+
+      counter-reset: error-count;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fill, minmax(250px, 1fr));
+
+      gap: 1rem;
+
+      max-width: 1400px;
+
+      margin: 0 auto;
+    }
+
+    .error-list li {
+      padding: 10px;
+
+      background: rgba(255, 255, 255, 0.03);
+
+      border: 1px solid rgba(255, 255, 255, 0.05);
+
+      counter-increment: error-count;
+
+      position: relative;
+
+      transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+
+      background-image: none;
+    }
+
+    .error-list li:hover {
+      background: rgba(255, 59, 48, 0.1);
+
+      border-color: var(--error-red);
+
+      transform: translateX(5px);
+    }
+
+    .error-list li::before {
+      content: counter(error-count, decimal-leading-zero) ". ";
+
+      color: var(--error-red);
+
+      font-weight: bold;
+
+      margin-right: 10px;
+    }
+
+    .error-list span {
+      color: var(--text-main);
+    }
+
+    /* =========================
+       PROMPT BLOCK
+       ========================= */
+
+    .prompt-block {
+      width: 100%;
+
+      background-color: var(--panel-darker);
+
+      padding: 3rem 2rem;
+
+      border: none;
+
+      box-shadow: none;
+
+      background-image: none;
+
+      margin-bottom: 3rem;
+    }
+
+    .prompt-block h2 {
+      font-size: 2rem;
+
+      margin-bottom: 2rem;
+
+      text-transform: uppercase;
+
+      color: var(--prompt-green);
+
+      letter-spacing: 1px;
+
+      text-align: center;
+    }
+
+    .prompt-list {
+      list-style: none;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fill, minmax(220px, 1fr));
+
+      gap: 1rem;
+
+      max-width: 1400px;
+
+      margin: 0 auto;
+    }
+
+    /* Каждое слово — отдельная ячейка */
+
+    .prompt-list li {
+      min-height: 58px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 12px 16px;
+
+      background: rgba(255, 255, 255, 0.03);
+
+      border: 1px solid rgba(255, 255, 255, 0.05);
+
+      color: var(--text-main);
+
+      transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+      cursor: default;
+    }
+
+    /* Зеленая подсветка при наведении */
+
+    .prompt-list li:hover {
+      background: rgba(48, 209, 88, 0.1);
+
+      border-color: var(--prompt-green);
+
+      color: var(--prompt-green);
+
+      transform: translateY(-3px);
+
+      box-shadow:
+        0 0 15px rgba(48, 209, 88, 0.08);
+    }
+
+    /* =========================
+       FOOTER
+       ========================= */
+
+    footer {
+      padding: 1.5rem 1rem;
+
+      text-align: center;
+
+      color: var(--text-muted);
+
+      font-size: 0.9rem;
+
+      border: none;
+
+      background: transparent;
+      background-image: none;
+    }
+
+    /* =========================
+       ПОЛНОЕ УДАЛЕНИЕ
+       ФОНОВЫХ ЭЛЕМЕНТОВ
+       ========================= */
+
+    body::before,
+    body::after,
+    header::before,
+    header::after,
+    main::before,
+    main::after,
+    .theory-block::before,
+    .theory-block::after,
+    .error-block::before,
+    .error-block::after,
+    .prompt-block::before,
+    .prompt-block::after,
+    footer::before,
+    footer::after {
+      content: none !important;
+
+      display: none !important;
+
+      background: none !important;
+
+      background-image: none !important;
+
+      animation: none !important;
+    }
+
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 600px) {
+
+      header {
+        padding: 3rem 1rem;
+      }
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      .tagline {
+        font-size: 1rem;
+      }
+
+      .theory-block {
+        padding: 3rem 1.25rem;
+      }
+
+      .error-block {
+        padding: 3rem 1.25rem;
+      }
+
+      .prompt-block {
+        padding: 3rem 1.25rem;
+      }
+
+      .error-list {
+        grid-template-columns: 1fr;
+      }
+
+      .prompt-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+       ========================= -->
+
+  <header>
+
+    <h1>VERSION</h1>
+
+    <p class="tagline">
+      Мы не возвращаемся в прошлое. Мы возвращаемся к первым версиям будущего.
+    </p>
+
+  </header>
+
+
+  <main>
+
+    <!-- =========================
+         BLOCK 1 — THEORY
+         ========================= -->
+
+    <section class="theory-block">
+
+      <h2>Теория 6 пальцев</h2>
+
+      <p class="placeholder-text">
+        Здесь будет текст-пустышка. Вы можете заменить этот абзац
+        на реальный контент.
+      </p>
+
+    </section>
+
+
+    <!-- =========================
+         BLOCK 2 — ERROR
+         ========================= -->
+
+    <section class="error-block">
+
+      <h2>Error</h2>
+
+      <ul class="error-list">
+
+        <li><span>Six Fingers — шесть пальцев</span></li>
+        <li><span>Extra Fingers — лишние пальцы</span></li>
+        <li><span>Melted Hands — слипшиеся и плавящиеся кисти</span></li>
+        <li><span>Broken Hands — неправильная анатомия рук</span></li>
+        <li><span>Extra Limbs — лишние конечности</span></li>
+        <li><span>Broken Anatomy — невозможная анатомия</span></li>
+        <li><span>Double Face — двойное лицо</span></li>
+        <li><span>Melted Face — плавящееся лицо</span></li>
+        <li><span>Asymmetric Eyes — асимметричные глаза</span></li>
+        <li><span>Wrong Eyes — неправильное направление взгляда</span></li>
+        <li><span>Synthetic Smile — искажённые зубы и улыбка</span></li>
+        <li><span>Mutated Ears — деформированные или лишние уши</span></li>
+        <li><span>Face Collision — смешение нескольких лиц</span></li>
+        <li><span>Object Collision — слияние разных объектов</span></li>
+        <li><span>Object Duplication — повторение одного объекта</span></li>
+        <li><span>Floating Objects — парящие детали</span></li>
+        <li><span>Material Fusion — слияние материалов</span></li>
+        <li><span>Clothing Fusion — одежда, сросшаяся с телом</span></li>
+        <li><span>Impossible Clothing — невозможная конструкция одежды</span></li>
+        <li><span>Broken Jewelry — деформированные украшения</span></li>
+        <li><span>Broken Glasses — искажённые очки</span></li>
+        <li><span>Mirror Error — неправильное отражение</span></li>
+        <li><span>Shadow Error — неправильные тени</span></li>
+        <li><span>Light Error — неправильное освещение</span></li>
+        <li><span>Background Anatomy — странные люди</span></li>
+
+      </ul>
+
+    </section>
+
+
+    <!-- =========================
+         BLOCK 3 — PROMPT
+         ========================= -->
+
+    <section class="prompt-block">
+
+      <h2>Prompt</h2>
+
+      <ul class="prompt-list">
+
+        <li>masterpiece</li>
+        <li>best quality</li>
+        <li>high quality</li>
+        <li>highres</li>
+        <li>4k</li>
+        <li>8k</li>
+        <li>ultra detailed</li>
+        <li>highly detailed</li>
+        <li>intricate details</li>
+        <li>sharp focus</li>
+        <li>photorealistic</li>
+        <li>realistic</li>
+        <li>ultra realistic</li>
+        <li>hyperrealistic</li>
+        <li>DSLR</li>
+        <li>RAW photo</li>
+        <li>35mm</li>
+        <li>50mm</li>
+        <li>85mm</li>
+        <li>depth of field</li>
+        <li>shallow depth of field</li>
+        <li>bokeh</li>
+        <li>film grain</li>
+        <li>lens flare</li>
+        <li>cinematic lighting</li>
+        <li>dramatic lighting</li>
+        <li>soft lighting</li>
+        <li>studio lighting</li>
+        <li>natural lighting</li>
+        <li>volumetric lighting</li>
+        <li>rim light</li>
+        <li>golden hour</li>
+        <li>digital art</li>
+        <li>digital painting</li>
+        <li>concept art</li>
+        <li>fantasy art</li>
+        <li>cinematic</li>
+        <li>anime</li>
+        <li>surreal</li>
+        <li>illustration</li>
+        <li>oil painting</li>
+        <li>watercolor</li>
+        <li>portrait</li>
+        <li>close-up</li>
+        <li>full body</li>
+        <li>wide shot</li>
+        <li>centered</li>
+        <li>symmetrical</li>
+        <li>dynamic pose</li>
+        <li>looking at viewer</li>
+        <li>trending on ArtStation</li>
+        <li>ArtStation</li>
+        <li>award winning</li>
+        <li>beautiful</li>
+        <li>amazing</li>
+        <li>epic</li>
+        <li>stunning</li>
+
+      </ul>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+       ========================= -->
+
+  <footer>
+
+    &copy; Version 2024
+
+  </footer>
+
+</body>
+</html>
