@@ -239,6 +239,11 @@
     }
 
 
+    /* =========================================
+       ФОТОГРАФИЯ
+       САМЫЙ НИЖНИЙ СЛОЙ
+       ========================================= */
+
     .photo-tile img {
 
       position: absolute;
@@ -255,9 +260,6 @@
 
       opacity: 1;
 
-      /*
-       * ФОТОГРАФИЯ — НИЖНИЙ СЛОЙ
-       */
       z-index: 1;
 
       transition:
@@ -279,7 +281,8 @@
 
 
     /* =========================================
-       БОКОВОЕ ЗАТЕМНЕНИЕ
+       ТЁМНЫЕ КРАЯ
+       ПОВЕРХ ФОТОГРАФИИ
        ========================================= */
 
     .tile-side {
@@ -292,9 +295,6 @@
 
       width: 28%;
 
-      /*
-       * ТЁМНЫЕ КРАЯ — ПОВЕРХ ФОТО
-       */
       z-index: 2;
 
       opacity: 0;
@@ -364,6 +364,7 @@
 
     /* =========================================
        СТРЕЛКИ
+       САМЫЙ ВЕРХНИЙ СЛОЙ
        ========================================= */
 
     .tile-arrow {
@@ -372,9 +373,6 @@
 
       top: 50%;
 
-      /*
-       * СТРЕЛКИ — САМЫЙ ВЕРХНИЙ СЛОЙ
-       */
       z-index: 3;
 
       width: 44px;
@@ -492,6 +490,7 @@
 
     /* =========================================
        НОМЕР ПЛИТКИ
+       ПОЛНОСТЬЮ СКРЫТ
        ========================================= */
 
     .tile-number {
@@ -865,8 +864,8 @@
       background:
         rgba(
           255,
-          255,
-          255,
+          59,
+          48,
           0.10
         );
 
@@ -1029,7 +1028,7 @@
           48,
           209,
           88,
-          0.1
+          0.10
         );
 
       border-color:
@@ -1078,6 +1077,10 @@
 
     }
 
+
+    /* =========================================
+       УДАЛЕНИЕ ФОНОВЫХ ЭЛЕМЕНТОВ
+       ========================================= */
 
     body::before,
     body::after,
@@ -1303,6 +1306,7 @@
       <button
         class="user-panel-button"
         id="stylesButton"
+        type="button"
       >
         Стили
       </button>
@@ -1311,6 +1315,7 @@
       <button
         class="user-panel-button"
         id="generationButton"
+        type="button"
       >
         Генерация
       </button>
@@ -1428,7 +1433,7 @@
           type="button"
           aria-label="Предыдущее фото"
         >
-          &#10094;
+          ❮
         </button>
 
         <button
@@ -1437,7 +1442,7 @@
           type="button"
           aria-label="Следующее фото"
         >
-          &#10095;
+          ❯
         </button>
 
       </article>
@@ -1473,7 +1478,7 @@
           type="button"
           aria-label="Предыдущее фото"
         >
-          &#10094;
+          ❮
         </button>
 
         <button
@@ -1482,7 +1487,7 @@
           type="button"
           aria-label="Следующее фото"
         >
-          &#10095;
+          ❯
         </button>
 
       </article>
@@ -1518,7 +1523,7 @@
           type="button"
           aria-label="Предыдущее фото"
         >
-          &#10094;
+          ❮
         </button>
 
         <button
@@ -1527,7 +1532,7 @@
           type="button"
           aria-label="Следующее фото"
         >
-          &#10095;
+          ❯
         </button>
 
       </article>
@@ -1563,7 +1568,7 @@
           type="button"
           aria-label="Предыдущее фото"
         >
-          &#10094;
+          ❮
         </button>
 
         <button
@@ -1572,7 +1577,7 @@
           type="button"
           aria-label="Следующее фото"
         >
-          &#10095;
+          ❯
         </button>
 
       </article>
@@ -1608,7 +1613,7 @@
           type="button"
           aria-label="Предыдущее фото"
         >
-          &#10094;
+          ❮
         </button>
 
         <button
@@ -1617,7 +1622,7 @@
           type="button"
           aria-label="Следующее фото"
         >
-          &#10095;
+          ❯
         </button>
 
       </article>
@@ -1653,7 +1658,7 @@
           type="button"
           aria-label="Предыдущее фото"
         >
-          &#10094;
+          ❮
         </button>
 
         <button
@@ -1662,7 +1667,7 @@
           type="button"
           aria-label="Следующее фото"
         >
-          &#10095;
+          ❯
         </button>
 
       </article>
@@ -1698,7 +1703,7 @@
           type="button"
           aria-label="Предыдущее фото"
         >
-          &#10094;
+          ❮
         </button>
 
         <button
@@ -1707,7 +1712,7 @@
           type="button"
           aria-label="Следующее фото"
         >
-          &#10095;
+          ❯
         </button>
 
       </article>
@@ -1743,7 +1748,7 @@
           type="button"
           aria-label="Предыдущее фото"
         >
-          &#10094;
+          ❮
         </button>
 
         <button
@@ -1752,7 +1757,7 @@
           type="button"
           aria-label="Следующее фото"
         >
-          &#10095;
+          ❯
         </button>
 
       </article>
@@ -1788,7 +1793,7 @@
           type="button"
           aria-label="Предыдущее фото"
         >
-          &#10094;
+          ❮
         </button>
 
         <button
@@ -1797,7 +1802,7 @@
           type="button"
           aria-label="Следующее фото"
         >
-          &#10095;
+          ❯
         </button>
 
       </article>
@@ -1833,7 +1838,7 @@
           type="button"
           aria-label="Предыдущее фото"
         >
-          &#10094;
+          ❮
         </button>
 
         <button
@@ -1842,7 +1847,7 @@
           type="button"
           aria-label="Следующее фото"
         >
-          &#10095;
+          ❯
         </button>
 
       </article>
@@ -1878,7 +1883,7 @@
           type="button"
           aria-label="Предыдущее фото"
         >
-          &#10094;
+          ❮
         </button>
 
         <button
@@ -1887,7 +1892,7 @@
           type="button"
           aria-label="Следующее фото"
         >
-          &#10095;
+          ❯
         </button>
 
       </article>
@@ -1923,7 +1928,7 @@
           type="button"
           aria-label="Предыдущее фото"
         >
-          &#10094;
+          ❮
         </button>
 
         <button
@@ -1932,7 +1937,7 @@
           type="button"
           aria-label="Следующее фото"
         >
-          &#10095;
+          ❯
         </button>
 
       </article>
@@ -1943,6 +1948,7 @@
 
     <!-- =========================================
          ERROR
+         ПОЛНЫЙ СПИСОК
          ========================================= -->
 
     <section class="error-block">
@@ -1954,45 +1960,653 @@
 
       <ul class="error-list">
 
-        <li><span>Six Fingers — шесть пальцев</span></li>
+        <li>
+          <span>
+            Six Fingers — шесть пальцев
+          </span>
+        </li>
 
-        <li><span>Extra Fingers — лишние пальцы</span></li>
+        <li>
+          <span>
+            Extra Fingers — лишние пальцы
+          </span>
+        </li>
 
-        <li><span>Melted Hands — слипшиеся и плавящиеся кисти</span></li>
+        <li>
+          <span>
+            Melted Hands — слипшиеся и плавящиеся кисти
+          </span>
+        </li>
 
-        <li><span>Broken Hands — неправильная анатомия рук</span></li>
+        <li>
+          <span>
+            Broken Hands — неправильная анатомия рук
+          </span>
+        </li>
 
-        <li><span>Extra Limbs — лишние конечности</span></li>
+        <li>
+          <span>
+            Extra Limbs — лишние конечности
+          </span>
+        </li>
 
-        <li><span>Broken Anatomy — невозможная анатомия</span></li>
+        <li>
+          <span>
+            Broken Anatomy — невозможная анатомия
+          </span>
+        </li>
 
-        <li><span>Double Face — двойное лицо</span></li>
+        <li>
+          <span>
+            Double Face — двойное лицо
+          </span>
+        </li>
 
-        <li><span>Melted Face — плавящееся лицо</span></li>
+        <li>
+          <span>
+            Melted Face — плавящееся лицо
+          </span>
+        </li>
 
-        <li><span>Asymmetric Eyes — асимметричные глаза</span></li>
+        <li>
+          <span>
+            Asymmetric Eyes — асимметричные глаза
+          </span>
+        </li>
 
-        <li><span>Wrong Eyes — неправильное направление взгляда</span></li>
+        <li>
+          <span>
+            Wrong Eyes — неправильное направление взгляда
+          </span>
+        </li>
 
-        <li><span>Synthetic Smile — искажённые зубы и улыбка</span></li>
+        <li>
+          <span>
+            Synthetic Smile — искажённые зубы и улыбка
+          </span>
+        </li>
 
-        <li><span>Mutated Ears — деформированные или лишние уши</span></li>
+        <li>
+          <span>
+            Mutated Ears — деформированные или лишние уши
+          </span>
+        </li>
 
-        <li><span>Face Collision — смешение нескольких лиц</span></li>
+        <li>
+          <span>
+            Face Collision — смешение нескольких лиц
+          </span>
+        </li>
 
-        <li><span>Object Collision — слияние разных объектов</span></li>
+        <li>
+          <span>
+            Object Collision — слияние разных объектов
+          </span>
+        </li>
 
-        <li><span>Object Duplication — повторение одного объекта</span></li>
+        <li>
+          <span>
+            Object Duplication — повторение одного объекта
+          </span>
+        </li>
 
-        <li><span>Floating Objects — парящие детали</span></li>
+        <li>
+          <span>
+            Floating Objects — парящие детали
+          </span>
+        </li>
 
-        <li><span>Material Fusion — слияние материалов</span></li>
+        <li>
+          <span>
+            Material Fusion — слияние материалов
+          </span>
+        </li>
 
-        <li><span>Clothing Fusion — одежда, сросшаяся с телом</span></li>
+        <li>
+          <span>
+            Clothing Fusion — одежда, сросшаяся с телом
+          </span>
+        </li>
 
-        <li><span>Impossible Clothing — невозможная конструкция одежды</span></li>
+        <li>
+          <span>
+            Impossible Clothing — невозможная конструкция одежды
+          </span>
+        </li>
 
-        <li><span>Broken Jewelry — деформированные украшения</span></li>
+        <li>
+          <span>
+            Broken Jewelry — деформированные украшения
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Broken Glasses — искажённые очки
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Mirror Error — неправильное отражение
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Shadow Error — неправильные тени
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Light Error — неправильное освещение
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Background Anatomy — странные люди
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Deformed Feet — деформированные стопы
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Extra Toes — лишние пальцы ног
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Missing Fingers — отсутствующие пальцы
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Missing Limbs — отсутствующие конечности
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Long Fingers — чрезмерно длинные пальцы
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Twisted Fingers — вывернутые пальцы
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Twisted Wrists — неправильное положение запястий
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Broken Arms — деформированные руки
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Broken Legs — деформированные ноги
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Wrong Limb Position — неправильное расположение конечностей
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Deformed Body — деформированное тело
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Dislocated Joints — неправильное положение суставов
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Bad Proportions — неправильные пропорции тела
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Long Neck — слишком длинная шея
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Broken Neck — неправильная анатомия шеи
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Deformed Nose — деформированный нос
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Deformed Mouth — деформированный рот
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Deformed Teeth — деформированные зубы
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Misaligned Teeth — неправильное расположение зубов
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Uneven Eyes — глаза разного размера
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Extra Eyes — лишние глаза
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Missing Eye — отсутствующий глаз
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Crossed Eyes — неправильное положение глаз
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Deformed Eyeballs — деформированные глазные яблоки
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Broken Hair — деформированные волосы
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Floating Hair — парящие пряди волос
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Hair Fusion — слияние волос с объектами
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Duplicate Person — повторяющийся человек
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Extra Person — лишний человек
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Missing Person — исчезнувший человек
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Duplicate Object — дублированный объект
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Missing Object — отсутствующий объект
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Floating Object — объект находится в воздухе
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Impossible Perspective — неправильная перспектива
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Broken Perspective — нарушенная перспектива
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Wrong Scale — неправильный масштаб объекта
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Object Distortion — искажение объекта
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Texture Distortion — искажение текстуры
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Texture Melting — плавящаяся текстура
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Material Distortion — искажение материала
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Plastic Skin — неестественная пластиковая кожа
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Wax Skin — восковая кожа
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Artificial Skin — неестественная кожа
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Skin Texture Error — ошибка текстуры кожи
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Clothing Distortion — искажение одежды
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Clothing Texture Error — ошибка текстуры одежды
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Clothing Pattern Error — неправильный рисунок одежды
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Jewelry Distortion — искажение украшений
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Jewelry Duplication — дублирование украшений
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Glass Distortion — искажение стекла
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Reflection Error — неправильное отражение
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Mirror Distortion — искажение зеркала
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Shadow Duplication — повторяющиеся тени
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Shadow Direction Error — неправильное направление тени
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Lighting Inconsistency — несогласованное освещение
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Overexposure — пересвет
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Underexposure — недостаточная экспозиция
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Color Bleeding — смешивание цветов
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Color Distortion — искажение цветов
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Background Distortion — искажение фона
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Background Duplication — дублирование элементов фона
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Horizon Error — неправильная линия горизонта
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Perspective Collision — конфликт перспективы
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Geometry Error — ошибка геометрии
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Architecture Distortion — искажение архитектуры
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Broken Architecture — неправильная конструкция здания
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Repeating Pattern — повторяющийся узор
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Random Details — случайные нежелательные детали
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Unwanted Objects — нежелательные объекты
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Unwanted People — нежелательные люди
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Unwanted Text — нежелательный текст
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Watermark — водяной знак
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Logo Error — нежелательный логотип
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Text Artifacts — артефакты текста
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Blur Artifacts — нежелательное размытие
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Noise Artifacts — шумовые артефакты
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Compression Artifacts — артефакты сжатия
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Low Detail — недостаток деталей
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Low Resolution — низкое разрешение
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Oversharpening — чрезмерная резкость
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Unnatural Lighting — неестественное освещение
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Unnatural Pose — неестественная поза
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Unnatural Expression — неестественное выражение лица
+          </span>
+        </li>
 
       </ul>
 
@@ -2001,6 +2615,7 @@
 
     <!-- =========================================
          PROMPT
+         ПОЛНЫЙ СПИСОК
          ========================================= -->
 
     <section class="prompt-block">
@@ -2012,29 +2627,595 @@
 
       <ul class="prompt-list">
 
-        <li>
-          High Quality
-        </li>
+        <li>masterpiece</li>
 
-        <li>
-          Photorealistic
-        </li>
+        <li>best quality</li>
 
-        <li>
-          Detailed
-        </li>
+        <li>high quality</li>
 
-        <li>
-          Cinematic
-        </li>
+        <li>highres</li>
 
-        <li>
-          Realistic Lighting
-        </li>
+        <li>4k</li>
 
-        <li>
-          Sharp Details
-        </li>
+        <li>8k</li>
+
+        <li>ultra detailed</li>
+
+        <li>highly detailed</li>
+
+        <li>intricate details</li>
+
+        <li>sharp focus</li>
+
+        <li>photorealistic</li>
+
+        <li>realistic</li>
+
+        <li>ultra realistic</li>
+
+        <li>hyperrealistic</li>
+
+        <li>DSLR</li>
+
+        <li>RAW photo</li>
+
+        <li>35mm</li>
+
+        <li>50mm</li>
+
+        <li>85mm</li>
+
+        <li>depth of field</li>
+
+        <li>shallow depth of field</li>
+
+        <li>bokeh</li>
+
+        <li>film grain</li>
+
+        <li>lens flare</li>
+
+        <li>cinematic lighting</li>
+
+        <li>dramatic lighting</li>
+
+        <li>soft lighting</li>
+
+        <li>studio lighting</li>
+
+        <li>natural lighting</li>
+
+        <li>volumetric lighting</li>
+
+        <li>rim light</li>
+
+        <li>golden hour</li>
+
+        <li>blue hour</li>
+
+        <li>sunset</li>
+
+        <li>sunrise</li>
+
+        <li>ambient lighting</li>
+
+        <li>global illumination</li>
+
+        <li>soft shadows</li>
+
+        <li>hard shadows</li>
+
+        <li>realistic shadows</li>
+
+        <li>ambient occlusion</li>
+
+        <li>subsurface scattering</li>
+
+        <li>natural skin texture</li>
+
+        <li>skin pores</li>
+
+        <li>fine details</li>
+
+        <li>micro details</li>
+
+        <li>realistic textures</li>
+
+        <li>high dynamic range</li>
+
+        <li>HDR</li>
+
+        <li>accurate colors</li>
+
+        <li>natural colors</li>
+
+        <li>color grading</li>
+
+        <li>professional photography</li>
+
+        <li>professional photo</li>
+
+        <li>editorial photography</li>
+
+        <li>fashion photography</li>
+
+        <li>portrait photography</li>
+
+        <li>street photography</li>
+
+        <li>landscape photography</li>
+
+        <li>architectural photography</li>
+
+        <li>documentary photography</li>
+
+        <li>cinematic photography</li>
+
+        <li>digital art</li>
+
+        <li>digital painting</li>
+
+        <li>concept art</li>
+
+        <li>fantasy art</li>
+
+        <li>cinematic</li>
+
+        <li>anime</li>
+
+        <li>surreal</li>
+
+        <li>illustration</li>
+
+        <li>oil painting</li>
+
+        <li>watercolor</li>
+
+        <li>sketch</li>
+
+        <li>comic art</li>
+
+        <li>graphic design</li>
+
+        <li>3D render</li>
+
+        <li>3D artwork</li>
+
+        <li>CGI</li>
+
+        <li>VFX</li>
+
+        <li>portrait</li>
+
+        <li>close-up</li>
+
+        <li>extreme close-up</li>
+
+        <li>medium shot</li>
+
+        <li>full body</li>
+
+        <li>wide shot</li>
+
+        <li>long shot</li>
+
+        <li>establishing shot</li>
+
+        <li>centered</li>
+
+        <li>symmetrical</li>
+
+        <li>asymmetrical composition</li>
+
+        <li>dynamic pose</li>
+
+        <li>natural pose</li>
+
+        <li>relaxed pose</li>
+
+        <li>standing</li>
+
+        <li>sitting</li>
+
+        <li>walking</li>
+
+        <li>looking at viewer</li>
+
+        <li>eye contact</li>
+
+        <li>natural expression</li>
+
+        <li>subtle expression</li>
+
+        <li>realistic anatomy</li>
+
+        <li>accurate anatomy</li>
+
+        <li>correct proportions</li>
+
+        <li>perfect composition</li>
+
+        <li>balanced composition</li>
+
+        <li>rule of thirds</li>
+
+        <li>leading lines</li>
+
+        <li>visual hierarchy</li>
+
+        <li>depth</li>
+
+        <li>foreground</li>
+
+        <li>midground</li>
+
+        <li>background</li>
+
+        <li>atmospheric perspective</li>
+
+        <li>environmental detail</li>
+
+        <li>realistic environment</li>
+
+        <li>natural environment</li>
+
+        <li>detailed background</li>
+
+        <li>clean background</li>
+
+        <li>minimal background</li>
+
+        <li>studio background</li>
+
+        <li>dark background</li>
+
+        <li>moody atmosphere</li>
+
+        <li>dramatic atmosphere</li>
+
+        <li>cinematic atmosphere</li>
+
+        <li>dreamlike atmosphere</li>
+
+        <li>mysterious atmosphere</li>
+
+        <li>epic atmosphere</li>
+
+        <li>beautiful</li>
+
+        <li>amazing</li>
+
+        <li>epic</li>
+
+        <li>stunning</li>
+
+        <li>elegant</li>
+
+        <li>beautiful composition</li>
+
+        <li>visual masterpiece</li>
+
+        <li>award winning</li>
+
+        <li>trending on ArtStation</li>
+
+        <li>ArtStation</li>
+
+        <li>Behance</li>
+
+        <li>professional composition</li>
+
+        <li>professional color grading</li>
+
+        <li>film still</li>
+
+        <li>movie still</li>
+
+        <li>cinema frame</li>
+
+        <li>Hollywood style</li>
+
+        <li>film photography</li>
+
+        <li>analog photography</li>
+
+        <li>35mm film</li>
+
+        <li>medium format</li>
+
+        <li>vintage photography</li>
+
+        <li>retro photography</li>
+
+        <li>modern photography</li>
+
+        <li>contemporary photography</li>
+
+        <li>realistic materials</li>
+
+        <li>realistic reflections</li>
+
+        <li>realistic refractions</li>
+
+        <li>realistic glass</li>
+
+        <li>realistic metal</li>
+
+        <li>realistic fabric</li>
+
+        <li>realistic wood</li>
+
+        <li>realistic stone</li>
+
+        <li>realistic water</li>
+
+        <li>realistic fire</li>
+
+        <li>realistic smoke</li>
+
+        <li>realistic clouds</li>
+
+        <li>detailed clouds</li>
+
+        <li>dramatic clouds</li>
+
+        <li>storm clouds</li>
+
+        <li>starry sky</li>
+
+        <li>night sky</li>
+
+        <li>blue sky</li>
+
+        <li>natural sky</li>
+
+        <li>realistic vegetation</li>
+
+        <li>detailed vegetation</li>
+
+        <li>realistic trees</li>
+
+        <li>realistic grass</li>
+
+        <li>realistic flowers</li>
+
+        <li>realistic animals</li>
+
+        <li>realistic architecture</li>
+
+        <li>detailed architecture</li>
+
+        <li>modern architecture</li>
+
+        <li>classical architecture</li>
+
+        <li>futuristic architecture</li>
+
+        <li>cyberpunk</li>
+
+        <li>futuristic</li>
+
+        <li>sci-fi</li>
+
+        <li>science fiction</li>
+
+        <li>fantasy</li>
+
+        <li>dark fantasy</li>
+
+        <li>high fantasy</li>
+
+        <li>post-apocalyptic</li>
+
+        <li>steampunk</li>
+
+        <li>space opera</li>
+
+        <li>alien world</li>
+
+        <li>extraterrestrial</li>
+
+        <li>spaceship</li>
+
+        <li>UFO</li>
+
+        <li>technology</li>
+
+        <li>advanced technology</li>
+
+        <li>robotics</li>
+
+        <li>artificial intelligence</li>
+
+        <li>neon lighting</li>
+
+        <li>neon glow</li>
+
+        <li>volumetric fog</li>
+
+        <li>atmospheric fog</li>
+
+        <li>smoke</li>
+
+        <li>mist</li>
+
+        <li>dust particles</li>
+
+        <li>floating particles</li>
+
+        <li>light particles</li>
+
+        <li>god rays</li>
+
+        <li>sun rays</li>
+
+        <li>backlighting</li>
+
+        <li>rim lighting</li>
+
+        <li>edge lighting</li>
+
+        <li>soft rim light</li>
+
+        <li>dramatic rim light</li>
+
+        <li>high contrast</li>
+
+        <li>low contrast</li>
+
+        <li>cinematic contrast</li>
+
+        <li>natural contrast</li>
+
+        <li>deep blacks</li>
+
+        <li>clean highlights</li>
+
+        <li>rich colors</li>
+
+        <li>muted colors</li>
+
+        <li>desaturated</li>
+
+        <li>monochrome</li>
+
+        <li>black and white</li>
+
+        <li>teal and orange</li>
+
+        <li>warm tones</li>
+
+        <li>cool tones</li>
+
+        <li>neutral tones</li>
+
+        <li>moody colors</li>
+
+        <li>cinematic color palette</li>
+
+        <li>professional color palette</li>
+
+        <li>realistic color palette</li>
+
+        <li>sharp details</li>
+
+        <li>fine textures</li>
+
+        <li>intricate textures</li>
+
+        <li>complex details</li>
+
+        <li>extreme detail</li>
+
+        <li>maximum detail</li>
+
+        <li>clean details</li>
+
+        <li>precise details</li>
+
+        <li>accurate details</li>
+
+        <li>natural details</li>
+
+        <li>photographic details</li>
+
+        <li>realistic details</li>
+
+        <li>high fidelity</li>
+
+        <li>high definition</li>
+
+        <li>ultra HD</li>
+
+        <li>UHD</li>
+
+        <li>8K UHD</li>
+
+        <li>4K UHD</li>
+
+        <li>professional camera</li>
+
+        <li>cinema camera</li>
+
+        <li>DSLR camera</li>
+
+        <li>mirrorless camera</li>
+
+        <li>macro photography</li>
+
+        <li>telephoto lens</li>
+
+        <li>wide angle lens</li>
+
+        <li>ultra wide angle</li>
+
+        <li>portrait lens</li>
+
+        <li>prime lens</li>
+
+        <li>35mm lens</li>
+
+        <li>50mm lens</li>
+
+        <li>85mm lens</li>
+
+        <li>135mm lens</li>
+
+        <li>f/1.4</li>
+
+        <li>f/1.8</li>
+
+        <li>f/2.8</li>
+
+        <li>natural depth of field</li>
+
+        <li>cinematic depth of field</li>
+
+        <li>focus stacking</li>
+
+        <li>sharp foreground</li>
+
+        <li>sharp subject</li>
+
+        <li>soft background</li>
+
+        <li>blurred background</li>
+
+        <li>natural bokeh</li>
+
+        <li>creamy bokeh</li>
+
+        <li>lens compression</li>
+
+        <li>perspective</li>
+
+        <li>realistic perspective</li>
+
+        <li>accurate perspective</li>
+
+        <li>natural perspective</li>
+
+        <li>cinematic framing</li>
+
+        <li>professional framing</li>
+
+        <li>balanced framing</li>
+
+        <li>clean framing</li>
+
+        <li>minimal composition</li>
+
+        <li>complex composition</li>
+
+        <li>epic composition</li>
+
+        <li>dramatic composition</li>
+
+        <li>cinematic composition</li>
+
+        <li>photographic composition</li>
+
+        <li>realistic composition</li>
 
       </ul>
 
@@ -2054,11 +3235,226 @@
   </footer>
 
 
+  <!-- =========================================
+       JAVASCRIPT
+       ========================================= -->
+
   <script>
 
 
     /* =========================================
-       ПЕРЕТАСКИВАНИЕ USER MENU
+       ДАННЫЕ ФОТОГРАФИЙ
+       ========================================= */
+
+    const photoSources = [
+
+      "457357.png",
+
+      "47457457.png",
+
+      "generated_1234532523.png",
+
+      "generated_img2img_234967429.png",
+
+      "generated_img2img_29863429.png",
+
+      "generated_img2img_9988.png",
+
+      "generated_txt2img_234929.png"
+
+    ];
+
+
+    /* =========================================
+       ВСЕ ФОТОГРАФИИ
+       ========================================= */
+
+    const photoTiles =
+      document.querySelectorAll(
+        ".photo-tile"
+      );
+
+
+    /* =========================================
+       КАЖДАЯ ПЛИТКА ИМЕЕТ СОБСТВЕННЫЙ ИНДЕКС
+       ========================================= */
+
+    const tileIndexes =
+      Array.from(
+        photoTiles,
+        (_, index) => index % photoSources.length
+      );
+
+
+    /* =========================================
+       ПОКАЗ ФОТОГРАФИИ
+       ========================================= */
+
+    function changeTilePhoto(
+      tile,
+      direction
+    ) {
+
+      const tileIndex =
+        Number(
+          tile.dataset.tile
+        );
+
+
+      let currentIndex =
+        tileIndexes[tileIndex];
+
+
+      if (direction === "next") {
+
+        currentIndex =
+          (
+            currentIndex +
+            1
+          ) %
+          photoSources.length;
+
+      }
+
+
+      if (direction === "prev") {
+
+        currentIndex =
+          (
+            currentIndex -
+            1 +
+            photoSources.length
+          ) %
+          photoSources.length;
+
+      }
+
+
+      tileIndexes[tileIndex] =
+        currentIndex;
+
+
+      const image =
+        tile.querySelector(
+          "img"
+        );
+
+
+      if (!image) {
+        return;
+      }
+
+
+      image.style.opacity = "0";
+
+
+      setTimeout(
+        () => {
+
+          image.src =
+            photoSources[currentIndex];
+
+          image.onload =
+            () => {
+
+              image.style.opacity = "1";
+
+            };
+
+        },
+        100
+      );
+
+    }
+
+
+    /* =========================================
+       СТРЕЛКИ КАЖДОЙ ПЛИТКИ
+       ========================================= */
+
+    photoTiles.forEach(
+      (tile) => {
+
+        const arrows =
+          tile.querySelectorAll(
+            ".tile-arrow"
+          );
+
+
+        arrows.forEach(
+          (arrow) => {
+
+            arrow.addEventListener(
+              "click",
+              (event) => {
+
+                event.preventDefault();
+
+                event.stopPropagation();
+
+
+                const direction =
+                  arrow.dataset.direction;
+
+
+                changeTilePhoto(
+                  tile,
+                  direction
+                );
+
+              }
+            );
+
+          }
+        );
+
+      }
+    );
+
+
+    /* =========================================
+       АВТОМАТИЧЕСКОЕ ОБНОВЛЕНИЕ
+       ========================================= */
+
+    const AUTO_CHANGE_TIME =
+      15000;
+
+
+    photoTiles.forEach(
+      (tile, tileIndex) => {
+
+        const randomStart =
+          Math.floor(
+            Math.random() *
+            AUTO_CHANGE_TIME
+          );
+
+
+        setTimeout(
+          () => {
+
+            setInterval(
+              () => {
+
+                changeTilePhoto(
+                  tile,
+                  "next"
+                );
+
+              },
+              AUTO_CHANGE_TIME
+            );
+
+          },
+          randomStart
+        );
+
+      }
+    );
+
+
+    /* =========================================
+       USER BAR — DRAG
        ========================================= */
 
     const userPanel =
@@ -2073,133 +3469,243 @@
       );
 
 
-    let dragging = false;
+    let isDragging = false;
 
-    let offsetX = 0;
+    let startX = 0;
 
-    let offsetY = 0;
+    let startY = 0;
 
+    let startLeft = 0;
+
+    let startTop = 0;
+
+
+    /* =========================================
+       НАЖАТИЕ НА USER
+       ========================================= */
 
     userPanelHeader.addEventListener(
-      "mousedown",
-      function (event) {
+      "pointerdown",
+      (event) => {
 
-        dragging = true;
+        event.preventDefault();
+
 
         const rect =
           userPanel.getBoundingClientRect();
 
-        offsetX =
-          event.clientX -
-          rect.left;
 
-        offsetY =
-          event.clientY -
-          rect.top;
+        userPanel.style.left =
+          rect.left + "px";
+
+
+        userPanel.style.top =
+          rect.top + "px";
+
 
         userPanel.style.right =
           "auto";
 
+
         userPanel.style.bottom =
           "auto";
 
-      }
-    );
+
+        startX =
+          event.clientX;
 
 
-    document.addEventListener(
-      "mousemove",
-      function (event) {
-
-        if (!dragging) {
-          return;
-        }
-
-        userPanel.style.left =
-          (
-            event.clientX -
-            offsetX
-          ) + "px";
-
-        userPanel.style.top =
-          (
-            event.clientY -
-            offsetY
-          ) + "px";
-
-      }
-    );
+        startY =
+          event.clientY;
 
 
-    document.addEventListener(
-      "mouseup",
-      function () {
+        startLeft =
+          rect.left;
 
-        dragging = false;
+
+        startTop =
+          rect.top;
+
+
+        isDragging = true;
+
+
+        userPanelHeader.setPointerCapture(
+          event.pointerId
+        );
+
+
+        userPanelHeader.style.cursor =
+          "grabbing";
 
       }
     );
 
 
     /* =========================================
-       TOUCH
+       ПЕРЕМЕЩЕНИЕ USER
        ========================================= */
 
     userPanelHeader.addEventListener(
-      "touchstart",
-      function (event) {
+      "pointermove",
+      (event) => {
 
-        const touch =
-          event.touches[0];
+        if (!isDragging) {
 
-        const rect =
-          userPanel.getBoundingClientRect();
+          return;
 
-        offsetX =
-          touch.clientX -
-          rect.left;
+        }
 
-        offsetY =
-          touch.clientY -
-          rect.top;
 
-        userPanel.style.right =
-          "auto";
+        const deltaX =
+          event.clientX -
+          startX;
 
-        userPanel.style.bottom =
-          "auto";
 
-      },
-      {
-        passive: true
+        const deltaY =
+          event.clientY -
+          startY;
+
+
+        let newLeft =
+          startLeft +
+          deltaX;
+
+
+        let newTop =
+          startTop +
+          deltaY;
+
+
+        const panelWidth =
+          userPanel.offsetWidth;
+
+
+        const panelHeight =
+          userPanel.offsetHeight;
+
+
+        const maxLeft =
+          window.innerWidth -
+          panelWidth;
+
+
+        const maxTop =
+          window.innerHeight -
+          panelHeight;
+
+
+        newLeft =
+          Math.max(
+            0,
+            Math.min(
+              newLeft,
+              maxLeft
+            )
+          );
+
+
+        newTop =
+          Math.max(
+            0,
+            Math.min(
+              newTop,
+              maxTop
+            )
+          );
+
+
+        userPanel.style.left =
+          newLeft + "px";
+
+
+        userPanel.style.top =
+          newTop + "px";
+
+      }
+    );
+
+
+    /* =========================================
+       ОТПУСКАНИЕ USER
+       ========================================= */
+
+    userPanelHeader.addEventListener(
+      "pointerup",
+      (event) => {
+
+        isDragging = false;
+
+
+        try {
+
+          userPanelHeader.releasePointerCapture(
+            event.pointerId
+          );
+
+        } catch (error) {
+
+        }
+
+
+        userPanelHeader.style.cursor =
+          "move";
+
       }
     );
 
 
     userPanelHeader.addEventListener(
-      "touchmove",
-      function (event) {
+      "pointercancel",
+      () => {
 
-        const touch =
-          event.touches[0];
+        isDragging = false;
 
-        userPanel.style.left =
-          (
-            touch.clientX -
-            offsetX
-          ) + "px";
+        userPanelHeader.style.cursor =
+          "move";
 
-        userPanel.style.top =
-          (
-            touch.clientY -
-            offsetY
-          ) + "px";
-
-      },
-      {
-        passive: true
       }
     );
+
+
+    /* =========================================
+       СТИЛИ
+       ========================================= */
+
+    document
+      .getElementById(
+        "stylesButton"
+      )
+      .addEventListener(
+        "click",
+        () => {
+
+          console.log(
+            "Открыть раздел Стили"
+          );
+
+        }
+      );
+
+
+    /* =========================================
+       ГЕНЕРАЦИЯ
+       ========================================= */
+
+    document
+      .getElementById(
+        "generationButton"
+      )
+      .addEventListener(
+        "click",
+        () => {
+
+          console.log(
+            "Открыть раздел Генерация"
+          );
+
+        }
+      );
 
 
   </script>
