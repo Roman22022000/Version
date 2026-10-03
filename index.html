@@ -255,6 +255,11 @@
 
       opacity: 1;
 
+      /*
+       * ИЗМЕНЕНО:
+       * изображение теперь находится
+       * выше боковой тени
+       */
       z-index: 2;
 
       transition:
@@ -289,6 +294,10 @@
 
       width: 28%;
 
+      /*
+       * ИЗМЕНЕНО:
+       * тень теперь находится под изображением
+       */
       z-index: 1;
 
       opacity: 0;
@@ -1970,11 +1979,6 @@
         <li><span>Clothing Fusion — одежда, сросшаяся с телом</span></li>
         <li><span>Impossible Clothing — невозможная конструкция одежды</span></li>
         <li><span>Broken Jewelry — деформированные украшения</span></li>
-        <li><span>Broken Glasses — искажённые очки</span></li>
-        <li><span>Mirror Error — неправильное отражение</span></li>
-        <li><span>Shadow Error — неправильные тени</span></li>
-        <li><span>Light Error — неправильное освещение</span></li>
-        <li><span>Background Anatomy — странные люди</span></li>
 
       </ul>
 
@@ -1994,24 +1998,193 @@
 
       <ul class="prompt-list">
 
-        <li>masterpiece</li>
-        <li>best quality</li>
-        <li>high quality</li>
-        <li>highres</li>
-        <li>4k</li>
-        <li>8k</li>
-        <li>ultra detailed</li>
-        <li>highly detailed</li>
-        <li>intricate details</li>
-        <li>sharp focus</li>
-        <li>photorealistic</li>
-        <li>realistic</li>
-        <li>ultra realistic</li>
-        <li>hyperrealistic</li>
-        <li>DSLR</li>
-        <li>RAW photo</li>
-        <li>35mm</li>
-        <li>50mm</li>
-        <li>85mm</li>
-        <li>depth of field</li>
-        <li>shallow
+        <li>
+          High Quality
+        </li>
+
+        <li>
+          Photorealistic
+        </li>
+
+        <li>
+          Detailed
+        </li>
+
+        <li>
+          Cinematic
+        </li>
+
+        <li>
+          Realistic Lighting
+        </li>
+
+        <li>
+          Sharp Details
+        </li>
+
+      </ul>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================
+       FOOTER
+       ========================================= -->
+
+  <footer>
+
+    VERSION
+
+  </footer>
+
+
+  <script>
+
+    /*
+     * Панель пользователя
+     */
+
+    const userPanel =
+      document.getElementById(
+        "userPanel"
+      );
+
+    const userPanelHeader =
+      document.getElementById(
+        "userPanelHeader"
+      );
+
+
+    let dragging = false;
+
+    let offsetX = 0;
+
+    let offsetY = 0;
+
+
+    userPanelHeader.addEventListener(
+      "mousedown",
+      function (event) {
+
+        dragging = true;
+
+        const rect =
+          userPanel.getBoundingClientRect();
+
+        offsetX =
+          event.clientX -
+          rect.left;
+
+        offsetY =
+          event.clientY -
+          rect.top;
+
+        userPanel.style.right = "auto";
+
+        userPanel.style.bottom = "auto";
+
+      }
+    );
+
+
+    document.addEventListener(
+      "mousemove",
+      function (event) {
+
+        if (!dragging) {
+          return;
+        }
+
+        userPanel.style.left =
+          (
+            event.clientX -
+            offsetX
+          ) + "px";
+
+        userPanel.style.top =
+          (
+            event.clientY -
+            offsetY
+          ) + "px";
+
+      }
+    );
+
+
+    document.addEventListener(
+      "mouseup",
+      function () {
+
+        dragging = false;
+
+      }
+    );
+
+
+    /*
+     * Touch
+     */
+
+    userPanelHeader.addEventListener(
+      "touchstart",
+      function (event) {
+
+        const touch =
+          event.touches[0];
+
+        const rect =
+          userPanel.getBoundingClientRect();
+
+        offsetX =
+          touch.clientX -
+          rect.left;
+
+        offsetY =
+          touch.clientY -
+          rect.top;
+
+        userPanel.style.right = "auto";
+
+        userPanel.style.bottom = "auto";
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    userPanelHeader.addEventListener(
+      "touchmove",
+      function (event) {
+
+        const touch =
+          event.touches[0];
+
+        userPanel.style.left =
+          (
+            touch.clientX -
+            offsetX
+          ) + "px";
+
+        userPanel.style.top =
+          (
+            touch.clientY -
+            offsetY
+          ) + "px";
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+  </script>
+
+
+</body>
+
+</html>
