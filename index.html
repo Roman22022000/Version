@@ -1,41 +1,65 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Version</title>
 
+
   <style>
 
+
     :root {
+
       --bg-dark: #121212;
+
       --panel-darker: #1a1a1a;
+
       --text-main: #e0e0e0;
+
       --text-muted: #a0a0a0;
+
       --accent: #c0c0c0;
 
       --error-red: #ff3b30;
+
       --prompt-green: #30d158;
+
     }
 
 
     * {
+
       box-sizing: border-box;
+
       margin: 0;
+
       padding: 0;
+
     }
 
 
     html,
     body {
+
       width: 100%;
+
       min-height: 100%;
+
     }
 
 
     body {
+
       background: var(--bg-dark);
+
       color: var(--text-main);
 
       font-family:
@@ -49,12 +73,15 @@
         sans-serif;
 
       line-height: 1.5;
+
       min-height: 100vh;
 
       display: flex;
+
       flex-direction: column;
 
       background-image: none;
+
     }
 
 
@@ -63,6 +90,7 @@
        ========================================= */
 
     header {
+
       width: 100%;
 
       padding:
@@ -73,14 +101,18 @@
       text-align: center;
 
       border: none;
+
       box-shadow: none;
 
       background: transparent;
+
       background-image: none;
+
     }
 
 
     h1 {
+
       font-size:
         clamp(
           2.5rem,
@@ -109,10 +141,12 @@
           255,
           0.1
         );
+
     }
 
 
     .tagline {
+
       display: block;
 
       font-size: 1.125rem;
@@ -128,6 +162,7 @@
       padding: 0;
 
       text-align: center;
+
     }
 
 
@@ -136,6 +171,7 @@
        ========================================= */
 
     main {
+
       flex: 1;
 
       width: 100%;
@@ -145,16 +181,18 @@
       border: none;
 
       background: transparent;
+
       background-image: none;
+
     }
 
 
     /* =========================================
        PHOTO GALLERY
-       4 КОЛОНКИ × 3 СТРОКИ
        ========================================= */
 
     .photo-gallery {
+
       width: 100%;
 
       padding:
@@ -176,6 +214,7 @@
       gap: 2rem;
 
       background: transparent;
+
     }
 
 
@@ -184,15 +223,11 @@
        ========================================= */
 
     .photo-tile {
+
       position: relative;
 
       width: 100%;
 
-      /*
-        Формат плитки 4:3.
-        Это соответствует прямоугольным
-        ячейкам на вашем референсе.
-      */
       aspect-ratio: 4 / 3;
 
       overflow: hidden;
@@ -200,15 +235,18 @@
       background: #1a1a1a;
 
       isolation: isolate;
+
     }
 
 
     .photo-tile img {
+
       position: absolute;
 
       inset: 0;
 
       width: 100%;
+
       height: 100%;
 
       object-fit: cover;
@@ -224,11 +262,14 @@
       user-select: none;
 
       -webkit-user-drag: none;
+
     }
 
 
     .photo-tile:hover img {
+
       transform: scale(1.015);
+
     }
 
 
@@ -237,9 +278,11 @@
        ========================================= */
 
     .tile-side {
+
       position: absolute;
 
       top: 0;
+
       bottom: 0;
 
       width: 28%;
@@ -252,10 +295,12 @@
 
       transition:
         opacity 0.2s ease;
+
     }
 
 
     .tile-side-left {
+
       left: 0;
 
       background:
@@ -274,10 +319,12 @@
             0
           )
         );
+
     }
 
 
     .tile-side-right {
+
       right: 0;
 
       background:
@@ -296,11 +343,14 @@
             0
           )
         );
+
     }
 
 
     .photo-tile:hover .tile-side {
+
       opacity: 1;
+
     }
 
 
@@ -309,6 +359,7 @@
        ========================================= */
 
     .tile-arrow {
+
       position: absolute;
 
       top: 50%;
@@ -316,6 +367,7 @@
       z-index: 3;
 
       width: 44px;
+
       height: 44px;
 
       transform:
@@ -369,27 +421,35 @@
 
       -webkit-backdrop-filter:
         blur(3px);
+
     }
 
 
     .tile-arrow-left {
+
       left: 12px;
+
     }
 
 
     .tile-arrow-right {
+
       right: 12px;
+
     }
 
 
     .photo-tile:hover .tile-arrow {
+
       opacity: 1;
 
       pointer-events: auto;
+
     }
 
 
     .tile-arrow:hover {
+
       background:
         rgba(
           255,
@@ -405,77 +465,57 @@
           255,
           0.75
         );
+
     }
 
 
     .tile-arrow-left:hover {
+
       transform:
         translateY(-50%)
         scale(1.08);
+
     }
 
 
     .tile-arrow-right:hover {
+
       transform:
         translateY(-50%)
         scale(1.08);
+
     }
 
 
     .tile-arrow:active {
+
       transform:
         translateY(-50%)
         scale(0.94);
+
     }
 
 
     /* =========================================
        НОМЕР ПЛИТКИ
+       
+       НОВОЕ ИЗМЕНЕНИЕ:
+       НОМЕРА ПОЛНОСТЬЮ ОТКЛЮЧЕНЫ.
+       
+       Даже если элемент tile-number
+       останется в HTML, он не отображается.
        ========================================= */
 
     .tile-number {
-      position: absolute;
 
-      left: 10px;
-      top: 10px;
+      display: none !important;
 
-      z-index: 4;
+      opacity: 0 !important;
 
-      padding:
-        3px
-        6px;
+      visibility: hidden !important;
 
-      background:
-        rgba(
-          0,
-          0,
-          0,
-          0.42
-        );
+      pointer-events: none !important;
 
-      color:
-        rgba(
-          255,
-          255,
-          255,
-          0.85
-        );
-
-      font-size: 10px;
-
-      letter-spacing: 1px;
-
-      opacity: 0;
-
-      transition:
-        opacity 0.2s ease;
-
-      pointer-events: none;
-    }
-
-
-    .photo-tile:hover .tile-number {
-      opacity: 1;
     }
 
 
@@ -484,9 +524,11 @@
        ========================================= */
 
     .user-panel {
+
       position: fixed;
 
       top: 25px;
+
       right: 25px;
 
       width: 210px;
@@ -502,14 +544,12 @@
       user-select: none;
 
       touch-action: none;
+
     }
 
 
-    /* =========================================
-       USER BAR HEADER
-       ========================================= */
-
     .user-panel-header {
+
       width: 100%;
 
       height: 42px;
@@ -546,6 +586,7 @@
       cursor: move;
 
       touch-action: none;
+
     }
 
 
@@ -554,6 +595,7 @@
        ========================================= */
 
     .user-panel-menu {
+
       display: flex;
 
       flex-direction: column;
@@ -561,14 +603,12 @@
       width: 100%;
 
       padding: 8px;
+
     }
 
 
-    /* =========================================
-       КНОПКИ BAR MENU
-       ========================================= */
-
     .user-panel-button {
+
       width: 100%;
 
       height: 42px;
@@ -621,19 +661,19 @@
         border-color 0.2s ease,
         color 0.2s ease,
         box-shadow 0.2s ease;
+
     }
 
 
     .user-panel-button:last-child {
+
       margin-bottom: 0;
+
     }
 
 
-    /* =========================================
-       БЕЛАЯ ПОДСВЕТКА
-       ========================================= */
-
     .user-panel-button:hover {
+
       background:
         rgba(
           255,
@@ -660,10 +700,12 @@
           255,
           0.15
         );
+
     }
 
 
     .user-panel-button:active {
+
       background:
         rgba(
           255,
@@ -688,21 +730,21 @@
           255,
           0.2
         );
+
     }
 
 
-    /* =========================================
-       ПУСТЫЕ КНОПКИ
-       ========================================= */
-
     .user-panel-button.placeholder {
+
       color: #666666;
 
       cursor: default;
+
     }
 
 
     .user-panel-button.placeholder:hover {
+
       background:
         rgba(
           255,
@@ -722,6 +764,7 @@
       color: #666666;
 
       box-shadow: none;
+
     }
 
 
@@ -730,6 +773,7 @@
        ========================================= */
 
     .error-block {
+
       width: 100%;
 
       background-color: #151515;
@@ -745,10 +789,12 @@
       background-image: none;
 
       margin-bottom: 3rem;
+
     }
 
 
     .error-block h2 {
+
       font-size: 2rem;
 
       margin-bottom: 2rem;
@@ -760,10 +806,12 @@
       letter-spacing: 1px;
 
       text-align: center;
+
     }
 
 
     .error-list {
+
       list-style: none;
 
       counter-reset: error-count;
@@ -784,10 +832,12 @@
       max-width: 1400px;
 
       margin: 0 auto;
+
     }
 
 
     .error-list li {
+
       padding: 10px;
 
       background:
@@ -818,10 +868,12 @@
         transform 0.3s ease;
 
       background-image: none;
+
     }
 
 
     .error-list li:hover {
+
       background:
         rgba(
           255,
@@ -835,10 +887,12 @@
 
       transform:
         translateX(5px);
+
     }
 
 
     .error-list li::before {
+
       content:
         counter(
           error-count,
@@ -852,12 +906,15 @@
       font-weight: bold;
 
       margin-right: 10px;
+
     }
 
 
     .error-list span {
+
       color:
         var(--text-main);
+
     }
 
 
@@ -866,6 +923,7 @@
        ========================================= */
 
     .prompt-block {
+
       width: 100%;
 
       background-color:
@@ -882,10 +940,12 @@
       background-image: none;
 
       margin-bottom: 3rem;
+
     }
 
 
     .prompt-block h2 {
+
       font-size: 2rem;
 
       margin-bottom: 2rem;
@@ -898,10 +958,12 @@
       letter-spacing: 1px;
 
       text-align: center;
+
     }
 
 
     .prompt-list {
+
       list-style: none;
 
       display: grid;
@@ -920,10 +982,12 @@
       max-width: 1400px;
 
       margin: 0 auto;
+
     }
 
 
     .prompt-list li {
+
       min-height: 58px;
 
       display: flex;
@@ -966,10 +1030,12 @@
         box-shadow 0.3s ease;
 
       cursor: default;
+
     }
 
 
     .prompt-list li:hover {
+
       background:
         rgba(
           48,
@@ -995,6 +1061,7 @@
           88,
           0.08
         );
+
     }
 
 
@@ -1003,6 +1070,7 @@
        ========================================= */
 
     footer {
+
       padding:
         1.5rem
         1rem;
@@ -1019,12 +1087,9 @@
       background: transparent;
 
       background-image: none;
+
     }
 
-
-    /* =========================================
-       УДАЛЕНИЕ ФОНОВЫХ ЭЛЕМЕНТОВ
-       ========================================= */
 
     body::before,
     body::after,
@@ -1048,6 +1113,7 @@
       background-image: none !important;
 
       animation: none !important;
+
     }
 
 
@@ -1058,6 +1124,7 @@
     @media (max-width: 1000px) {
 
       .photo-gallery {
+
         grid-template-columns:
           repeat(
             3,
@@ -1066,6 +1133,7 @@
               1fr
             )
           );
+
       }
 
     }
@@ -1074,23 +1142,30 @@
     @media (max-width: 700px) {
 
       header {
+
         padding:
           3rem
           1rem;
+
       }
 
 
       h1 {
+
         font-size: 3rem;
+
       }
 
 
       .tagline {
+
         font-size: 1rem;
+
       }
 
 
       .photo-gallery {
+
         padding:
           1rem
           0.75rem
@@ -1106,72 +1181,93 @@
               1fr
             )
           );
+
       }
 
 
       .tile-arrow {
+
         width: 40px;
 
         height: 40px;
 
         font-size: 24px;
+
       }
 
 
       .tile-arrow-left {
+
         left: 7px;
+
       }
 
 
       .tile-arrow-right {
+
         right: 7px;
+
       }
 
 
       .user-panel {
+
         width: 180px;
 
         top: 15px;
 
         right: 15px;
+
       }
 
 
       .user-panel-header {
+
         height: 38px;
+
       }
 
 
       .user-panel-button {
+
         height: 38px;
 
         font-size: 12px;
+
       }
 
 
       .error-block {
+
         padding:
           3rem
           1.25rem;
+
       }
 
 
       .prompt-block {
+
         padding:
           3rem
           1.25rem;
+
       }
 
 
       .error-list {
+
         grid-template-columns:
           1fr;
+
       }
 
 
       .prompt-list {
+
         grid-template-columns:
           1fr;
+
       }
 
     }
@@ -1180,13 +1276,17 @@
     @media (max-width: 430px) {
 
       .photo-gallery {
+
         grid-template-columns:
           1fr;
+
       }
 
     }
 
+
   </style>
+
 </head>
 
 
@@ -1284,8 +1384,10 @@
 
 
     <p class="tagline">
+
       Мы не возвращаемся в прошлое.
       Мы возвращаемся к первым версиям будущего.
+
     </p>
 
   </header>
@@ -1300,7 +1402,6 @@
 
     <!-- =========================================
          PHOTO GALLERY
-         4 x 3 = 12 ПЛИТОК
          ========================================= -->
 
     <section
@@ -1320,6 +1421,9 @@
           src="457357.png"
           alt="Фотография 01"
         >
+
+
+        <!-- НОМЕР БОЛЬШЕ НЕ ОТОБРАЖАЕТСЯ -->
 
         <span class="tile-number">
           01
@@ -1374,16 +1478,13 @@
           02
         </span>
 
-
         <div
           class="tile-side tile-side-left"
         ></div>
 
-
         <div
           class="tile-side tile-side-right"
         ></div>
-
 
         <button
           class="tile-arrow tile-arrow-left"
@@ -1393,7 +1494,6 @@
         >
           &#10094;
         </button>
-
 
         <button
           class="tile-arrow tile-arrow-right"
@@ -1423,16 +1523,13 @@
           03
         </span>
 
-
         <div
           class="tile-side tile-side-left"
         ></div>
 
-
         <div
           class="tile-side tile-side-right"
         ></div>
-
 
         <button
           class="tile-arrow tile-arrow-left"
@@ -1442,7 +1539,6 @@
         >
           &#10094;
         </button>
-
 
         <button
           class="tile-arrow tile-arrow-right"
@@ -1472,16 +1568,13 @@
           04
         </span>
 
-
         <div
           class="tile-side tile-side-left"
         ></div>
 
-
         <div
           class="tile-side tile-side-right"
         ></div>
-
 
         <button
           class="tile-arrow tile-arrow-left"
@@ -1491,7 +1584,6 @@
         >
           &#10094;
         </button>
-
 
         <button
           class="tile-arrow tile-arrow-right"
@@ -1521,16 +1613,13 @@
           05
         </span>
 
-
         <div
           class="tile-side tile-side-left"
         ></div>
 
-
         <div
           class="tile-side tile-side-right"
         ></div>
-
 
         <button
           class="tile-arrow tile-arrow-left"
@@ -1540,7 +1629,6 @@
         >
           &#10094;
         </button>
-
 
         <button
           class="tile-arrow tile-arrow-right"
@@ -1570,16 +1658,13 @@
           06
         </span>
 
-
         <div
           class="tile-side tile-side-left"
         ></div>
 
-
         <div
           class="tile-side tile-side-right"
         ></div>
-
 
         <button
           class="tile-arrow tile-arrow-left"
@@ -1589,7 +1674,6 @@
         >
           &#10094;
         </button>
-
 
         <button
           class="tile-arrow tile-arrow-right"
@@ -1619,16 +1703,13 @@
           07
         </span>
 
-
         <div
           class="tile-side tile-side-left"
         ></div>
 
-
         <div
           class="tile-side tile-side-right"
         ></div>
-
 
         <button
           class="tile-arrow tile-arrow-left"
@@ -1638,7 +1719,6 @@
         >
           &#10094;
         </button>
-
 
         <button
           class="tile-arrow tile-arrow-right"
@@ -1668,16 +1748,13 @@
           08
         </span>
 
-
         <div
           class="tile-side tile-side-left"
         ></div>
 
-
         <div
           class="tile-side tile-side-right"
         ></div>
-
 
         <button
           class="tile-arrow tile-arrow-left"
@@ -1687,7 +1764,6 @@
         >
           &#10094;
         </button>
-
 
         <button
           class="tile-arrow tile-arrow-right"
@@ -1717,16 +1793,13 @@
           09
         </span>
 
-
         <div
           class="tile-side tile-side-left"
         ></div>
 
-
         <div
           class="tile-side tile-side-right"
         ></div>
-
 
         <button
           class="tile-arrow tile-arrow-left"
@@ -1736,7 +1809,6 @@
         >
           &#10094;
         </button>
-
 
         <button
           class="tile-arrow tile-arrow-right"
@@ -1766,16 +1838,13 @@
           10
         </span>
 
-
         <div
           class="tile-side tile-side-left"
         ></div>
 
-
         <div
           class="tile-side tile-side-right"
         ></div>
-
 
         <button
           class="tile-arrow tile-arrow-left"
@@ -1785,7 +1854,6 @@
         >
           &#10094;
         </button>
-
 
         <button
           class="tile-arrow tile-arrow-right"
@@ -1815,16 +1883,13 @@
           11
         </span>
 
-
         <div
           class="tile-side tile-side-left"
         ></div>
 
-
         <div
           class="tile-side tile-side-right"
         ></div>
-
 
         <button
           class="tile-arrow tile-arrow-left"
@@ -1834,7 +1899,6 @@
         >
           &#10094;
         </button>
-
 
         <button
           class="tile-arrow tile-arrow-right"
@@ -1864,16 +1928,13 @@
           12
         </span>
 
-
         <div
           class="tile-side tile-side-left"
         ></div>
 
-
         <div
           class="tile-side tile-side-right"
         ></div>
-
 
         <button
           class="tile-arrow tile-arrow-left"
@@ -1883,7 +1944,6 @@
         >
           &#10094;
         </button>
-
 
         <button
           class="tile-arrow tile-arrow-right"
@@ -2143,6 +2203,7 @@
 
     </section>
 
+
   </main>
 
 
@@ -2151,7 +2212,9 @@
        ========================================= -->
 
   <footer>
+
     &copy; Version 2024
+
   </footer>
 
 
@@ -2163,16 +2226,9 @@
 
 
     /* =========================================
-       ФОТОГРАФИИ
-       =========================================
-
-       ЗДЕСЬ МЕНЯТЬ НАЗВАНИЯ ФАЙЛОВ.
-
-       Все эти файлы находятся В ОДНОЙ ПАПКЕ
-       с index.html.
-
-       Сейчас используются ваши реальные
-       названия файлов.
+       СПИСОК ФОТОГРАФИЙ
+       
+       ЗДЕСЬ МЕНЯТЬ НАЗВАНИЯ ФОТОГРАФИЙ.
        ========================================= */
 
     const photos = [
@@ -2207,12 +2263,15 @@
 
 
     /* =========================================
-       ТЕКУЩАЯ ФОТОГРАФИЯ КАЖДОЙ ПЛИТКИ
+       ТЕКУЩИЙ ИНДЕКС ФОТОГРАФИИ
        ========================================= */
 
     const tilePhotoIndexes =
       photoTiles.map(
-        (_, tileIndex) => {
+        (
+          _,
+          tileIndex
+        ) => {
 
           return (
             tileIndex %
@@ -2231,6 +2290,7 @@
       tileIndex,
       photoIndex
     ) {
+
 
       const tile =
         photoTiles[tileIndex];
@@ -2252,16 +2312,6 @@
         );
 
 
-      /*
-       * Зацикливание фотографий.
-       *
-       * Если индекс становится больше
-       * последнего — возвращаемся к первой.
-       *
-       * Если индекс становится меньше нуля —
-       * переходим на последнюю.
-       */
-
       tilePhotoIndexes[tileIndex] =
         (
           photoIndex +
@@ -2272,20 +2322,19 @@
 
       const nextSource =
         photos[
-          tilePhotoIndexes[tileIndex]
+          tilePhotoIndexes[
+            tileIndex
+          ]
         ];
 
 
-      /*
-       * Плавное исчезновение старого
-       * изображения.
-       */
-
-      image.style.opacity = "0";
+      image.style.opacity =
+        "0";
 
 
       setTimeout(
         () => {
+
 
           image.src =
             nextSource;
@@ -2314,6 +2363,7 @@
 
             };
 
+
         },
         100
       );
@@ -2322,7 +2372,7 @@
 
 
     /* =========================================
-       СТРЕЛКА НАЗАД / ВПЕРЁД
+       РУЧНЫЕ СТРЕЛКИ
        ========================================= */
 
     photoTiles.forEach(
@@ -2344,15 +2394,14 @@
           );
 
 
-        /* =====================================
-           ЛЕВАЯ СТРЕЛКА
-           ===================================== */
+        /* ЛЕВАЯ СТРЕЛКА */
 
         previousButton.addEventListener(
           "click",
           (
             event
           ) => {
+
 
             event.stopPropagation();
 
@@ -2368,15 +2417,14 @@
         );
 
 
-        /* =====================================
-           ПРАВАЯ СТРЕЛКА
-           ===================================== */
+        /* ПРАВАЯ СТРЕЛКА */
 
         nextButton.addEventListener(
           "click",
           (
             event
           ) => {
+
 
             event.stopPropagation();
 
@@ -2391,73 +2439,57 @@
           }
         );
 
+
       }
     );
 
 
     /* =========================================
-       АВТОМАТИЧЕСКОЕ ОБНОВЛЕНИЕ ФОТОГРАФИЙ
-       =========================================
-
-       НОВЫЙ КОД.
-
-       10000 миллисекунд = 10 секунд.
-
-       Каждые 10 секунд ВСЕ 12 плиток
-       переходят на следующую фотографию.
-
-       После последнего файла снова
-       используется первый файл.
-
+       АВТОМАТИЧЕСКОЕ ОБНОВЛЕНИЕ
+       
+       НОВЫЙ КОД
+       
+       15000 = 15 секунд.
+       
+       ВАЖНО:
+       Теперь НЕТ одного общего таймера
+       для всех картинок.
+       
+       Каждая плитка получает собственный
+       независимый таймер.
        ========================================= */
 
 
     /*
-     * ЗДЕСЬ МОЖНО МЕНЯТЬ ВРЕМЯ.
+     * ИНТЕРВАЛ МЕЖДУ ОБНОВЛЕНИЯМИ.
      *
-     * 10000 = 10 секунд
-     * 15000 = 15 секунд
-     * 20000 = 20 секунд
-     * 30000 = 30 секунд
+     * 15000 миллисекунд = 15 секунд.
      */
 
     const AUTO_PHOTO_CHANGE_MS =
-      10000;
-
-
-    /*
-     * АВТОМАТИЧЕСКИЙ ЦИКЛ
-     */
-
-    setInterval(
-      () => {
-
-
-        photoTiles.forEach(
-          (
-            _,
-            tileIndex
-          ) => {
-
-
-            showTilePhoto(
-              tileIndex,
-              tilePhotoIndexes[
-                tileIndex
-              ] + 1
-            );
-
-          }
-        );
-
-
-      },
-      AUTO_PHOTO_CHANGE_MS
-    );
+      15000;
 
 
     /* =========================================
-       ПЕРВОНАЧАЛЬНАЯ ЗАГРУЗКА
+       СЛУЧАЙНАЯ ЗАДЕРЖКА ПЕРВОГО ОБНОВЛЕНИЯ
+       
+       Каждая плитка стартует отдельно.
+       
+       Минимум: 0 секунд.
+       Максимум: 15 секунд.
+       
+       Например:
+       
+       Плитка 1 → 5.2 сек.
+       Плитка 2 → 3.1 сек.
+       Плитка 3 → 11.7 сек.
+       Плитка 4 → 8.4 сек.
+       
+       Затем каждая продолжает:
+       
+       +15 сек.
+       +15 сек.
+       +15 сек.
        ========================================= */
 
     photoTiles.forEach(
@@ -2467,12 +2499,106 @@
       ) => {
 
 
-        showTilePhoto(
-          tileIndex,
+        const randomStartDelay =
+          Math.random() *
+          AUTO_PHOTO_CHANGE_MS;
+
+
+        /*
+         * Первый переход происходит
+         * через случайное время.
+         */
+
+        setTimeout(
+          () => {
+
+
+            /*
+             * Переключаем фотографию
+             * на следующую.
+             */
+
+            showTilePhoto(
+              tileIndex,
+              tilePhotoIndexes[
+                tileIndex
+              ] + 1
+            );
+
+
+            /*
+             * После первого перехода
+             * запускаем собственный
+             * 15-секундный цикл этой плитки.
+             */
+
+            setInterval(
+              () => {
+
+
+                showTilePhoto(
+                  tileIndex,
+                  tilePhotoIndexes[
+                    tileIndex
+                  ] + 1
+                );
+
+
+              },
+              AUTO_PHOTO_CHANGE_MS
+            );
+
+
+          },
+          randomStartDelay
+        );
+
+
+      }
+    );
+
+
+    /* =========================================
+       ПЕРВОНАЧАЛЬНАЯ ЗАГРУЗКА
+       
+       Фотографии, которые уже находятся
+       в HTML, остаются первоначальными.
+       ========================================= */
+
+    photoTiles.forEach(
+      (
+        _,
+        tileIndex
+      ) => {
+
+
+        const initialIndex =
           tilePhotoIndexes[
             tileIndex
-          ]
-        );
+          ];
+
+
+        const tile =
+          photoTiles[
+            tileIndex
+          ];
+
+
+        const image =
+          tile.querySelector(
+            "img"
+          );
+
+
+        image.src =
+          photos[
+            initialIndex
+          ];
+
+
+        image.style.opacity =
+          "1";
+
 
       }
     );
@@ -2531,12 +2657,6 @@
         const rect =
           userPanel.getBoundingClientRect();
 
-
-        /*
-         * Фиксируем реальную позицию.
-         * Благодаря этому панель не скачет
-         * при первом движении.
-         */
 
         userPanel.style.left =
           rect.left + "px";
@@ -2743,6 +2863,7 @@
         "click",
         () => {
 
+
           console.log(
             "Открыть раздел Стили"
           );
@@ -2763,6 +2884,7 @@
         "click",
         () => {
 
+
           console.log(
             "Открыть раздел Генерация"
           );
@@ -2773,5 +2895,7 @@
 
   </script>
 
+
 </body>
+
 </html>
