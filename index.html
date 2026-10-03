@@ -10,119 +10,271 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>VERSION</title>
+  <title>Version</title>
+
 
   <style>
 
-    * {
-      box-sizing: border-box;
+    :root {
+
+      --bg-dark: #121212;
+
+      --panel-darker: #1a1a1a;
+
+      --text-main: #e0e0e0;
+
+      --text-muted: #a0a0a0;
+
+      --accent: #c0c0c0;
+
+      --error-red: #ff3b30;
+
+      --prompt-green: #30d158;
+
     }
+
+
+    * {
+
+      box-sizing: border-box;
+
+      margin: 0;
+
+      padding: 0;
+
+    }
+
 
     html,
     body {
-      margin: 0;
-      padding: 0;
+
       width: 100%;
+
       min-height: 100%;
+
     }
 
+
     body {
-      background: #121212;
-      color: #e0e0e0;
+
+      background: var(--bg-dark);
+
+      color: var(--text-main);
+
       font-family:
+        system-ui,
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
+        Roboto,
+        Helvetica,
         Arial,
         sans-serif;
+
+      line-height: 1.5;
+
+      min-height: 100vh;
+
+      display: flex;
+
+      flex-direction: column;
+
+      background-image: none;
+
     }
 
-    /* =========================
+
+    /* =========================================
        HEADER
-    ========================= */
+       ========================================= */
 
     header {
+
       width: 100%;
-      padding: 28px 20px 10px;
+
+      padding: 4rem 1rem 3.5rem;
+
       text-align: center;
-      background: transparent;
+
       border: none;
+
       box-shadow: none;
+
+      background: transparent;
+
+      background-image: none;
+
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 24px;
-      font-weight: 500;
-      letter-spacing: 4px;
+
+    h1 {
+
+      font-size:
+        clamp(2.5rem, 10vw, 5rem);
+
+      line-height: 1;
+
+      letter-spacing: -2px;
+
+      font-weight: 700;
+
+      text-transform: uppercase;
+
+      margin: 0 0 1.5rem;
+
+      text-shadow:
+        0 0 20px rgba(255, 255, 255, 0.1);
+
     }
 
-    /* =========================
-       GALLERY
-    ========================= */
 
-    .gallery {
-      width: 100%;
-      max-width: 1600px;
+    .tagline {
+
+      display: block;
+
+      font-size: 1.125rem;
+
+      color: var(--accent);
+
+      max-width: 800px;
+
       margin: 0 auto;
-      padding: 30px;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
+
+      border: none;
+
+      padding: 0;
+
+      text-align: center;
+
     }
 
-    /* =========================
+
+    /* =========================================
+       MAIN
+       ========================================= */
+
+    main {
+
+      flex: 1;
+
+      width: 100%;
+
+      padding: 0;
+
+      border: none;
+
+      background: transparent;
+
+      background-image: none;
+
+    }
+
+
+    /* =========================================
+       PHOTO GALLERY
+       ========================================= */
+
+    .photo-gallery {
+
+      width: 100%;
+
+      max-width: 1800px;
+
+      margin: 0 auto;
+
+      padding:
+        1rem 2rem 5rem;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 2rem;
+
+      background: transparent;
+
+    }
+
+
+    /* =========================================
        PHOTO TILE
-    ========================= */
+       ========================================= */
 
     .photo-tile {
+
       position: relative;
+
       width: 100%;
+
       aspect-ratio: 4 / 3;
+
       overflow: hidden;
+
       background: transparent;
+
       isolation: isolate;
+
     }
 
+
+    /* =========================================
+       IMAGE
+       ========================================= */
+
     .photo-tile img {
+
       position: absolute;
+
       inset: 0;
 
       width: 100%;
+
       height: 100%;
 
       object-fit: contain;
 
-      display: block;
+      object-position: center;
 
-      user-select: none;
-      -webkit-user-drag: none;
+      display: block;
 
       opacity: 1;
 
       transform: scale(1);
 
+      user-select: none;
+
+      -webkit-user-drag: none;
+
       transition:
-        opacity 0.45s ease,
-        transform 0.45s ease;
+        opacity 0.35s ease,
+        transform 0.35s ease;
 
       z-index: 1;
+
     }
+
 
     .photo-tile:hover img {
+
       transform: scale(1.015);
+
     }
 
-    /* =========================
-       БОКОВЫЕ ТЕНИ
-       Только тень.
-       Нет тёмного фонового блока.
-    ========================= */
+
+    /* =========================================
+       SIDE SHADOW
+       
+       Только затухающая тень.
+       Нет сплошного тёмного фона.
+       ========================================= */
 
     .tile-side {
+
       position: absolute;
 
       top: 0;
+
       bottom: 0;
 
       width: 30%;
@@ -132,72 +284,93 @@
       pointer-events: none;
 
       transition:
-        opacity 0.35s ease;
+        opacity 0.3s ease;
 
       z-index: 2;
+
     }
 
+
     .tile-side.left {
+
       left: 0;
 
       background:
         linear-gradient(
           to right,
-          rgba(0, 0, 0, 0.75),
-          rgba(0, 0, 0, 0.48) 20%,
-          rgba(0, 0, 0, 0.20) 45%,
+          rgba(0, 0, 0, 0.78) 0%,
+          rgba(0, 0, 0, 0.55) 18%,
+          rgba(0, 0, 0, 0.28) 40%,
+          rgba(0, 0, 0, 0.10) 65%,
           rgba(0, 0, 0, 0) 100%
         );
+
     }
 
+
     .tile-side.right {
+
       right: 0;
 
       background:
         linear-gradient(
           to left,
-          rgba(0, 0, 0, 0.75),
-          rgba(0, 0, 0, 0.48) 20%,
-          rgba(0, 0, 0, 0.20) 45%,
+          rgba(0, 0, 0, 0.78) 0%,
+          rgba(0, 0, 0, 0.55) 18%,
+          rgba(0, 0, 0, 0.28) 40%,
+          rgba(0, 0, 0, 0.10) 65%,
           rgba(0, 0, 0, 0) 100%
         );
+
     }
+
 
     .photo-tile:hover .tile-side {
+
       opacity: 1;
+
     }
 
-    /* =========================
+
+    /* =========================================
        ARROWS
-    ========================= */
+       ========================================= */
 
     .tile-arrow {
+
       position: absolute;
 
       top: 50%;
 
-      width: 44px;
-      height: 44px;
+      width: 48px;
 
-      margin: 0;
+      height: 48px;
 
       padding: 0;
+
+      margin: 0;
 
       transform:
         translateY(-50%);
 
       display: flex;
+
       align-items: center;
+
       justify-content: center;
 
       background: transparent;
+
       border: none;
+
       outline: none;
 
       color: #ffffff;
 
-      font-size: 30px;
+      font-size: 34px;
+
       font-weight: 300;
+
       line-height: 1;
 
       cursor: pointer;
@@ -210,334 +383,684 @@
 
       transition:
         opacity 0.25s ease,
-        transform 0.2s ease;
+        transform 0.2s ease,
+        text-shadow 0.2s ease;
+
     }
+
 
     .tile-arrow.left {
+
       left: 12px;
+
     }
+
 
     .tile-arrow.right {
+
       right: 12px;
+
     }
+
 
     .photo-tile:hover .tile-arrow {
+
       opacity: 1;
+
       pointer-events: auto;
+
     }
+
 
     .tile-arrow:hover {
+
       transform:
         translateY(-50%)
-        scale(1.08);
+        scale(1.1);
+
+      text-shadow:
+        0 0 8px rgba(255, 255, 255, 0.8),
+        0 0 18px rgba(255, 255, 255, 0.35);
+
     }
+
 
     .tile-arrow:active {
+
       transform:
         translateY(-50%)
-        scale(0.94);
+        scale(0.92);
+
     }
 
-    /* =========================
-       НОМЕРА ФОТОГРАФИЙ СКРЫТЫ
-    ========================= */
+
+    /* =========================================
+       НОМЕР ФОТОГРАФИИ СКРЫТ
+       ========================================= */
 
     .tile-number {
+
       display: none !important;
+
       opacity: 0 !important;
+
       visibility: hidden !important;
+
       pointer-events: none !important;
+
     }
 
-    /* =========================
-       USER PANEL
-    ========================= */
+
+    /* =========================================
+       USER BAR MENU
+       ========================================= */
 
     .user-panel {
+
       position: fixed;
 
       top: 25px;
+
       right: 25px;
 
       width: 210px;
 
-      background: #171717;
+      background: #151515;
 
       border: none;
+
       box-shadow: none;
 
-      z-index: 1000;
+      z-index: 9999;
+
+      user-select: none;
+
+      touch-action: none;
+
     }
 
+
+    /* =========================================
+       USER BAR HEADER
+       ========================================= */
+
     .user-panel-header {
+
       width: 100%;
+
       height: 42px;
 
       display: flex;
+
       align-items: center;
+
       justify-content: center;
 
-      border-bottom: 1px solid #303030;
+      padding: 0 10px;
+
+      background: #1a1a1a;
+
+      border-bottom:
+        1px solid rgba(255, 255, 255, 0.12);
+
+      color: var(--text-main);
+
+      font-size: 12px;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
 
       cursor: move;
 
-      user-select: none;
+      touch-action: none;
+
     }
 
-    .user-panel-header span {
-      font-size: 14px;
-      letter-spacing: 1px;
-    }
+
+    /* =========================================
+       MENU
+       ========================================= */
 
     .user-panel-menu {
-      padding: 10px;
-    }
 
-    .user-panel button {
+      display: flex;
+
+      flex-direction: column;
+
       width: 100%;
 
-      margin: 4px 0;
-      padding: 9px 10px;
+      padding: 8px;
 
-      background: transparent;
+    }
 
-      border: none;
 
-      color: #dddddd;
+    /* =========================================
+       BUTTONS
+       ========================================= */
 
-      font-size: 14px;
+    .user-panel-button {
+
+      width: 100%;
+
+      height: 42px;
+
+      margin-bottom: 6px;
+
+      border:
+        1px solid rgba(255, 255, 255, 0.10);
+
+      border-radius: 0;
+
+      background:
+        rgba(255, 255, 255, 0.025);
+
+      color: var(--text-main);
+
+      font-family: inherit;
+
+      font-size: 13px;
+
+      font-weight: 400;
+
+      text-align: center;
+
+      padding: 0 10px;
 
       cursor: pointer;
 
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
       transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
         color 0.2s ease,
-        text-shadow 0.2s ease;
+        box-shadow 0.2s ease;
+
     }
 
-    .user-panel button:hover {
+
+    .user-panel-button:last-child {
+
+      margin-bottom: 0;
+
+    }
+
+
+    .user-panel-button:hover {
+
+      background:
+        rgba(255, 255, 255, 0.07);
+
+      border-color:
+        rgba(255, 255, 255, 0.65);
+
       color: #ffffff;
 
-      text-shadow:
-        0 0 8px rgba(255,255,255,0.85),
-        0 0 18px rgba(255,255,255,0.45);
+      box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.15);
+
     }
 
-    /* =========================
-       ERROR BLOCK
-    ========================= */
 
-    .error-section {
-      width: 100%;
+    .user-panel-button:active {
 
-      margin-top: 10px;
-      padding: 30px;
+      background:
+        rgba(255, 255, 255, 0.12);
 
-      background: #171717;
+      border-color:
+        rgba(255, 255, 255, 0.8);
 
-      border: none;
-      box-shadow: none;
+      box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.2);
+
     }
 
-    .error-section h2 {
-      margin: 0 0 25px;
 
-      text-align: center;
+    /* =========================================
+       EMPTY BUTTONS
+       ========================================= */
 
-      font-size: 20px;
-      font-weight: 500;
-
-      letter-spacing: 2px;
-    }
-
-    .error-list {
-      display: grid;
-
-      grid-template-columns:
-        repeat(5, 1fr);
-
-      gap: 12px;
-    }
-
-    .error-item {
-      padding: 12px;
-
-      background: #1d1d1d;
-
-      border: none;
-
-      text-align: center;
-
-      cursor: pointer;
-
-      transition:
-        color 0.2s ease,
-        text-shadow 0.2s ease,
-        background 0.2s ease;
-    }
-
-    .error-item:hover {
-      color: #ff5b5b;
-
-      background: #202020;
-
-      text-shadow:
-        0 0 8px rgba(255, 70, 70, 0.55);
-    }
-
-    .error-item strong {
-      display: block;
-
-      margin-bottom: 5px;
-
-      font-size: 14px;
-    }
-
-    .error-item span {
-      font-size: 12px;
-
-      color: #999999;
-    }
-
-    /* =========================
-       PROMPT BLOCK
-    ========================= */
-
-    .prompt-section {
-      width: 100%;
-
-      margin-top: 20px;
-      padding: 30px;
-
-      background: #171717;
-
-      border: none;
-      box-shadow: none;
-    }
-
-    .prompt-section h2 {
-      margin: 0 0 25px;
-
-      text-align: center;
-
-      font-size: 20px;
-      font-weight: 500;
-
-      letter-spacing: 2px;
-    }
-
-    .prompt-list {
-      display: grid;
-
-      grid-template-columns:
-        repeat(5, 1fr);
-
-      gap: 12px;
-    }
-
-    .prompt-item {
-      padding: 12px;
-
-      background: #1d1d1d;
-
-      border: none;
-
-      text-align: center;
-
-      cursor: pointer;
-
-      transition:
-        color 0.2s ease,
-        text-shadow 0.2s ease,
-        background 0.2s ease;
-    }
-
-    .prompt-item:hover {
-      color: #7dff9a;
-
-      background: #202020;
-
-      text-shadow:
-        0 0 8px rgba(80, 255, 120, 0.45);
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      width: 100%;
-
-      padding: 35px 20px;
-
-      text-align: center;
+    .user-panel-button.placeholder {
 
       color: #666666;
 
-      font-size: 13px;
+      cursor: default;
+
     }
 
-    /* =========================
+
+    .user-panel-button.placeholder:hover {
+
+      background:
+        rgba(255, 255, 255, 0.025);
+
+      border-color:
+        rgba(255, 255, 255, 0.10);
+
+      color: #666666;
+
+      box-shadow: none;
+
+    }
+
+
+    /* =========================================
+       ERROR BLOCK
+       ========================================= */
+
+    .error-block {
+
+      width: 100%;
+
+      background-color: #151515;
+
+      padding: 3rem 2rem;
+
+      border: none;
+
+      box-shadow: none;
+
+      background-image: none;
+
+      margin-bottom: 3rem;
+
+    }
+
+
+    .error-block h2 {
+
+      font-size: 2rem;
+
+      margin-bottom: 2rem;
+
+      text-transform: uppercase;
+
+      color: var(--error-red);
+
+      letter-spacing: 1px;
+
+      text-align: center;
+
+    }
+
+
+    .error-list {
+
+      list-style: none;
+
+      counter-reset: error-count;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fill, minmax(250px, 1fr));
+
+      gap: 1rem;
+
+      max-width: 1400px;
+
+      margin: 0 auto;
+
+    }
+
+
+    .error-list li {
+
+      padding: 10px;
+
+      background:
+        rgba(255, 255, 255, 0.03);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.05);
+
+      counter-increment: error-count;
+
+      position: relative;
+
+      transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+
+      background-image: none;
+
+    }
+
+
+    .error-list li:hover {
+
+      background:
+        rgba(255, 59, 48, 0.1);
+
+      border-color:
+        var(--error-red);
+
+      transform:
+        translateX(5px);
+
+    }
+
+
+    .error-list li::before {
+
+      content:
+        counter(error-count, decimal-leading-zero) ". ";
+
+      color:
+        var(--error-red);
+
+      font-weight: bold;
+
+      margin-right: 10px;
+
+    }
+
+
+    .error-list span {
+
+      color:
+        var(--text-main);
+
+    }
+
+
+    /* =========================================
+       PROMPT BLOCK
+       ========================================= */
+
+    .prompt-block {
+
+      width: 100%;
+
+      background-color:
+        var(--panel-darker);
+
+      padding: 3rem 2rem;
+
+      border: none;
+
+      box-shadow: none;
+
+      background-image: none;
+
+      margin-bottom: 3rem;
+
+    }
+
+
+    .prompt-block h2 {
+
+      font-size: 2rem;
+
+      margin-bottom: 2rem;
+
+      text-transform: uppercase;
+
+      color:
+        var(--prompt-green);
+
+      letter-spacing: 1px;
+
+      text-align: center;
+
+    }
+
+
+    .prompt-list {
+
+      list-style: none;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fill, minmax(220px, 1fr));
+
+      gap: 1rem;
+
+      max-width: 1400px;
+
+      margin: 0 auto;
+
+    }
+
+
+    .prompt-list li {
+
+      min-height: 58px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 12px 16px;
+
+      background:
+        rgba(255, 255, 255, 0.03);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.05);
+
+      color:
+        var(--text-main);
+
+      transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+      cursor: default;
+
+    }
+
+
+    .prompt-list li:hover {
+
+      background:
+        rgba(48, 209, 88, 0.1);
+
+      border-color:
+        var(--prompt-green);
+
+      color:
+        var(--prompt-green);
+
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 0 15px rgba(48, 209, 88, 0.08);
+
+    }
+
+
+    /* =========================================
+       FOOTER
+       ========================================= */
+
+    footer {
+
+      padding: 1.5rem 1rem;
+
+      text-align: center;
+
+      color: var(--text-muted);
+
+      font-size: 0.9rem;
+
+      border: none;
+
+      background: transparent;
+
+      background-image: none;
+
+    }
+
+
+    /* =========================================
+       УДАЛЕНИЕ ФОНОВЫХ ПСЕВДОЭЛЕМЕНТОВ
+       ========================================= */
+
+    body::before,
+    body::after,
+    header::before,
+    header::after,
+    main::before,
+    main::after,
+    .error-block::before,
+    .error-block::after,
+    .prompt-block::before,
+    .prompt-block::after,
+    footer::before,
+    footer::after {
+
+      content: none !important;
+
+      display: none !important;
+
+      background: none !important;
+
+      background-image: none !important;
+
+      animation: none !important;
+
+    }
+
+
+    /* =========================================
        TABLET
-    ========================= */
+       ========================================= */
 
-    @media (max-width: 1000px) {
+    @media (max-width: 1100px) {
 
-      .gallery {
+      .photo-gallery {
+
         grid-template-columns:
           repeat(3, 1fr);
-      }
 
-      .error-list,
-      .prompt-list {
-        grid-template-columns:
-          repeat(3, 1fr);
       }
 
     }
 
-    /* =========================
+
+    /* =========================================
        MOBILE
-    ========================= */
+       ========================================= */
 
-    @media (max-width: 700px) {
+    @media (max-width: 750px) {
 
-      .gallery {
+      header {
+
+        padding:
+          3rem 1rem;
+
+      }
+
+
+      h1 {
+
+        font-size: 3rem;
+
+      }
+
+
+      .tagline {
+
+        font-size: 1rem;
+
+      }
+
+
+      .photo-gallery {
+
         grid-template-columns:
           repeat(2, 1fr);
 
-        gap: 1.2rem;
+        padding:
+          1rem 1rem 4rem;
 
-        padding: 20px;
+        gap:
+          1rem;
+
       }
 
-      .error-list,
-      .prompt-list {
-        grid-template-columns:
-          repeat(2, 1fr);
-      }
 
       .user-panel {
+
+        width: 180px;
+
         top: 15px;
+
         right: 15px;
+
+      }
+
+
+      .user-panel-header {
+
+        height: 38px;
+
+      }
+
+
+      .user-panel-button {
+
+        height: 38px;
+
+        font-size: 12px;
+
+      }
+
+
+      .error-block {
+
+        padding:
+          3rem 1.25rem;
+
+      }
+
+
+      .prompt-block {
+
+        padding:
+          3rem 1.25rem;
+
+      }
+
+
+      .error-list {
+
+        grid-template-columns: 1fr;
+
+      }
+
+
+      .prompt-list {
+
+        grid-template-columns: 1fr;
+
       }
 
     }
+
 
     @media (max-width: 430px) {
 
-      .gallery {
+      .photo-gallery {
+
         grid-template-columns: 1fr;
 
-        padding: 15px;
-      }
-
-      .error-list,
-      .prompt-list {
-        grid-template-columns: 1fr;
-      }
-
-      .user-panel {
-        width: 190px;
       }
 
     }
@@ -546,541 +1069,15 @@
 
 </head>
 
+
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================= -->
 
-  <header>
+  <!-- =========================================
+       USER BAR
+       ========================================= -->
 
-    <h1>VERSION</h1>
-
-  </header>
-
-
-  <!-- =========================
-       GALLERY
-  ========================= -->
-
-  <main class="gallery">
-
-
-    <!-- =========================
-         ЯЧЕЙКА 1
-         ФОТО ИЗ ПАПКИ noise
-    ========================= -->
-
-    <article
-      class="photo-tile"
-      data-tile="0"
-    >
-
-      <img
-        id="noiseImage"
-        src="noise/noise1.png"
-        alt="Noise 1"
-        draggable="false"
-      >
-
-      <div class="tile-side left"></div>
-
-      <div class="tile-side right"></div>
-
-      <button
-        class="tile-arrow left"
-        type="button"
-        aria-label="Предыдущее изображение"
-        onclick="previousNoise(event)"
-      >
-        ‹
-      </button>
-
-      <button
-        class="tile-arrow right"
-        type="button"
-        aria-label="Следующее изображение"
-        onclick="nextNoise(event)"
-      >
-        ›
-      </button>
-
-      <span class="tile-number">
-        1
-      </span>
-
-    </article>
-
-
-    <!-- =========================
-         ЯЧЕЙКА 2
-    ========================= -->
-
-    <article
-      class="photo-tile"
-      data-tile="1"
-    >
-
-      <img
-        src="47457457.png"
-        alt="Photo 2"
-        draggable="false"
-      >
-
-      <div class="tile-side left"></div>
-
-      <div class="tile-side right"></div>
-
-      <button
-        class="tile-arrow left"
-        type="button"
-        aria-label="Предыдущее изображение"
-      >
-        ‹
-      </button>
-
-      <button
-        class="tile-arrow right"
-        type="button"
-        aria-label="Следующее изображение"
-      >
-        ›
-      </button>
-
-      <span class="tile-number">
-        2
-      </span>
-
-    </article>
-
-
-    <!-- =========================
-         ЯЧЕЙКА 3
-    ========================= -->
-
-    <article
-      class="photo-tile"
-      data-tile="2"
-    >
-
-      <img
-        src="generated_1234532523.png"
-        alt="Photo 3"
-        draggable="false"
-      >
-
-      <div class="tile-side left"></div>
-
-      <div class="tile-side right"></div>
-
-      <button
-        class="tile-arrow left"
-        type="button"
-        aria-label="Предыдущее изображение"
-      >
-        ‹
-      </button>
-
-      <button
-        class="tile-arrow right"
-        type="button"
-        aria-label="Следующее изображение"
-      >
-        ›
-      </button>
-
-      <span class="tile-number">
-        3
-      </span>
-
-    </article>
-
-
-    <!-- =========================
-         ЯЧЕЙКА 4
-    ========================= -->
-
-    <article
-      class="photo-tile"
-      data-tile="3"
-    >
-
-      <img
-        src="generated_img2img_234967429.png"
-        alt="Photo 4"
-        draggable="false"
-      >
-
-      <div class="tile-side left"></div>
-
-      <div class="tile-side right"></div>
-
-      <button
-        class="tile-arrow left"
-        type="button"
-        aria-label="Предыдущее изображение"
-      >
-        ‹
-      </button>
-
-      <button
-        class="tile-arrow right"
-        type="button"
-        aria-label="Следующее изображение"
-      >
-        ›
-      </button>
-
-      <span class="tile-number">
-        4
-      </span>
-
-    </article>
-
-
-    <!-- =========================
-         ЯЧЕЙКА 5
-    ========================= -->
-
-    <article
-      class="photo-tile"
-      data-tile="4"
-    >
-
-      <img
-        src="generated_img2img_29863429.png"
-        alt="Photo 5"
-        draggable="false"
-      >
-
-      <div class="tile-side left"></div>
-
-      <div class="tile-side right"></div>
-
-      <button
-        class="tile-arrow left"
-        type="button"
-        aria-label="Предыдущее изображение"
-      >
-        ‹
-      </button>
-
-      <button
-        class="tile-arrow right"
-        type="button"
-        aria-label="Следующее изображение"
-      >
-        ›
-      </button>
-
-      <span class="tile-number">
-        5
-      </span>
-
-    </article>
-
-
-    <!-- =========================
-         ЯЧЕЙКА 6
-    ========================= -->
-
-    <article
-      class="photo-tile"
-      data-tile="5"
-    >
-
-      <img
-        src="generated_img2img_9988.png"
-        alt="Photo 6"
-        draggable="false"
-      >
-
-      <div class="tile-side left"></div>
-
-      <div class="tile-side right"></div>
-
-      <button
-        class="tile-arrow left"
-        type="button"
-        aria-label="Предыдущее изображение"
-      >
-        ‹
-      </button>
-
-      <button
-        class="tile-arrow right"
-        type="button"
-        aria-label="Следующее изображение"
-      >
-        ›
-      </button>
-
-      <span class="tile-number">
-        6
-      </span>
-
-    </article>
-
-
-    <!-- =========================
-         ЯЧЕЙКА 7
-    ========================= -->
-
-    <article
-      class="photo-tile"
-      data-tile="6"
-    >
-
-      <img
-        src="generated_txt2img_234929.png"
-        alt="Photo 7"
-        draggable="false"
-      >
-
-      <div class="tile-side left"></div>
-
-      <div class="tile-side right"></div>
-
-      <button
-        class="tile-arrow left"
-        type="button"
-        aria-label="Предыдущее изображение"
-      >
-        ‹
-      </button>
-
-      <button
-        class="tile-arrow right"
-        type="button"
-        aria-label="Следующее изображение"
-      >
-        ›
-      </button>
-
-      <span class="tile-number">
-        7
-      </span>
-
-    </article>
-
-
-    <!-- =========================
-         ЯЧЕЙКА 8
-    ========================= -->
-
-    <article
-      class="photo-tile"
-      data-tile="7"
-    >
-
-      <img
-        src="457357.png"
-        alt="Photo 8"
-        draggable="false"
-      >
-
-      <div class="tile-side left"></div>
-
-      <div class="tile-side right"></div>
-
-      <button
-        class="tile-arrow left"
-        type="button"
-        aria-label="Предыдущее изображение"
-      >
-        ‹
-      </button>
-
-      <button
-        class="tile-arrow right"
-        type="button"
-        aria-label="Следующее изображение"
-      >
-        ›
-      </button>
-
-      <span class="tile-number">
-        8
-      </span>
-
-    </article>
-
-
-    <!-- =========================
-         ЯЧЕЙКА 9
-    ========================= -->
-
-    <article
-      class="photo-tile"
-      data-tile="8"
-    >
-
-      <img
-        src="47457457.png"
-        alt="Photo 9"
-        draggable="false"
-      >
-
-      <div class="tile-side left"></div>
-
-      <div class="tile-side right"></div>
-
-      <button
-        class="tile-arrow left"
-        type="button"
-        aria-label="Предыдущее изображение"
-      >
-        ‹
-      </button>
-
-      <button
-        class="tile-arrow right"
-        type="button"
-        aria-label="Следующее изображение"
-      >
-        ›
-      </button>
-
-      <span class="tile-number">
-        9
-      </span>
-
-    </article>
-
-
-    <!-- =========================
-         ЯЧЕЙКА 10
-    ========================= -->
-
-    <article
-      class="photo-tile"
-      data-tile="9"
-    >
-
-      <img
-        src="generated_1234532523.png"
-        alt="Photo 10"
-        draggable="false"
-      >
-
-      <div class="tile-side left"></div>
-
-      <div class="tile-side right"></div>
-
-      <button
-        class="tile-arrow left"
-        type="button"
-        aria-label="Предыдущее изображение"
-      >
-        ‹
-      </button>
-
-      <button
-        class="tile-arrow right"
-        type="button"
-        aria-label="Следующее изображение"
-      >
-        ›
-      </button>
-
-      <span class="tile-number">
-        10
-      </span>
-
-    </article>
-
-
-    <!-- =========================
-         ЯЧЕЙКА 11
-    ========================= -->
-
-    <article
-      class="photo-tile"
-      data-tile="10"
-    >
-
-      <img
-        src="generated_img2img_234967429.png"
-        alt="Photo 11"
-        draggable="false"
-      >
-
-      <div class="tile-side left"></div>
-
-      <div class="tile-side right"></div>
-
-      <button
-        class="tile-arrow left"
-        type="button"
-        aria-label="Предыдущее изображение"
-      >
-        ‹
-      </button>
-
-      <button
-        class="tile-arrow right"
-        type="button"
-        aria-label="Следующее изображение"
-      >
-        ›
-      </button>
-
-      <span class="tile-number">
-        11
-      </span>
-
-    </article>
-
-
-    <!-- =========================
-         ЯЧЕЙКА 12
-    ========================= -->
-
-    <article
-      class="photo-tile"
-      data-tile="11"
-    >
-
-      <img
-        src="generated_img2img_29863429.png"
-        alt="Photo 12"
-        draggable="false"
-      >
-
-      <div class="tile-side left"></div>
-
-      <div class="tile-side right"></div>
-
-      <button
-        class="tile-arrow left"
-        type="button"
-        aria-label="Предыдущее изображение"
-      >
-        ‹
-      </button>
-
-      <button
-        class="tile-arrow right"
-        type="button"
-        aria-label="Следующее изображение"
-      >
-        ›
-      </button>
-
-      <span class="tile-number">
-        12
-      </span>
-
-    </article>
-
-  </main>
-
-
-  <!-- =========================
-       USER PANEL
-  ========================= -->
-
-  <aside
+  <div
     class="user-panel"
     id="userPanel"
   >
@@ -1089,277 +1086,852 @@
       class="user-panel-header"
       id="userPanelHeader"
     >
-      <span>
-        Меню
-      </span>
+
+      USER
+
     </div>
+
 
     <div class="user-panel-menu">
 
-      <button type="button">
+
+      <button
+        class="user-panel-button"
+        id="stylesButton"
+        type="button"
+      >
+
         Стили
+
       </button>
 
-      <button type="button">
+
+      <button
+        class="user-panel-button"
+        id="generationButton"
+        type="button"
+      >
+
         Генерация
+
       </button>
 
-      <button type="button">
+
+      <button
+        class="user-panel-button placeholder"
+        type="button"
+      >
+
         —
+
       </button>
 
-      <button type="button">
+
+      <button
+        class="user-panel-button placeholder"
+        type="button"
+      >
+
         —
+
       </button>
 
-      <button type="button">
+
+      <button
+        class="user-panel-button placeholder"
+        type="button"
+      >
+
         —
+
       </button>
 
-      <button type="button">
+
+      <button
+        class="user-panel-button placeholder"
+        type="button"
+      >
+
         —
+
       </button>
 
-      <button type="button">
+
+      <button
+        class="user-panel-button placeholder"
+        type="button"
+      >
+
         —
+
       </button>
+
 
     </div>
 
-  </aside>
+  </div>
 
 
-  <!-- =========================
-       ERRORS
-  ========================= -->
+  <!-- =========================================
+       HEADER
+       ========================================= -->
 
-  <section class="error-section">
+  <header>
 
-    <h2>
-      ОШИБКИ ГЕНЕРАЦИИ
-    </h2>
+    <h1>
 
-    <div class="error-list">
+      VERSION
 
-      <div class="error-item">
-        <strong>Six Fingers</strong>
-        <span>шесть пальцев</span>
-      </div>
-
-      <div class="error-item">
-        <strong>Extra Fingers</strong>
-        <span>лишние пальцы</span>
-      </div>
-
-      <div class="error-item">
-        <strong>Melted Hands</strong>
-        <span>слипшиеся и плавящиеся кисти</span>
-      </div>
-
-      <div class="error-item">
-        <strong>Broken Hands</strong>
-        <span>неправильная анатомия рук</span>
-      </div>
-
-      <div class="error-item">
-        <strong>Extra Limbs</strong>
-        <span>лишние конечности</span>
-      </div>
-
-      <div class="error-item">
-        <strong>Broken Anatomy</strong>
-        <span>невозможная анатомия</span>
-      </div>
-
-      <div class="error-item">
-        <strong>Double Face</strong>
-        <span>двойное лицо</span>
-      </div>
-
-      <div class="error-item">
-        <strong>Melted Face</strong>
-        <span>плавящееся лицо</span>
-      </div>
-
-      <div class="error-item">
-        <strong>Asymmetric Eyes</strong>
-        <span>асимметричные глаза</span>
-      </div>
-
-      <div class="error-item">
-        <strong>Wrong Eyes</strong>
-        <span>неправильное направление взгляда</span>
-      </div>
-
-      <div class="error-item">
-        <strong>Synthetic Smile</strong>
-        <span>искажённые зубы и улыбка</span>
-      </div>
-
-      <div class="error-item">
-        <strong>Mutated Ears</strong>
-        <span>деформированные или лишние уши</span>
-      </div>
-
-      <div class="error-item">
-        <strong>Face Collision</strong>
-        <span>смешение нескольких лиц</span>
-      </div>
-
-      <div class="error-item">
-        <strong>Object Collision</strong>
-        <span>слияние разных объектов</span>
-      </div>
-
-      <div class="error-item">
-        <strong>Object Duplication</strong>
-        <span>повторение одного объекта</span>
-      </div>
-
-      <div class="error-item">
-        <strong>Floating Objects</strong>
-        <span>парящие детали</span>
-      </div>
-
-      <div class="error-item">
-        <strong>Material Fusion</strong>
-        <span>слияние материалов</span>
-      </div>
-
-      <div class="error-item">
-        <strong>Clothing Fusion</strong>
-        <span>одежда, сросшаяся с телом</span>
-      </div>
-
-      <div class="error-item">
-        <strong>Impossible Clothing</strong>
-        <span>невозможная конструкция одежды</span>
-      </div>
-
-      <div class="error-item">
-        <strong>Broken Jewelry</strong>
-        <span>деформированные украшения</span>
-      </div>
-
-      <div class="error-item">
-        <strong>Broken Glasses</strong>
-        <span>искажённые очки</span>
-      </div>
-
-      <div class="error-item">
-        <strong>Mirror Error</strong>
-        <span>неправильное отражение</span>
-      </div>
-
-      <div class="error-item">
-        <strong>Shadow Error</strong>
-        <span>неправильные тени</span>
-      </div>
-
-      <div class="error-item">
-        <strong>Light Error</strong>
-        <span>неправильное освещение</span>
-      </div>
-
-      <div class="error-item">
-        <strong>Background Anatomy</strong>
-        <span>странные люди</span>
-      </div>
-
-    </div>
-
-  </section>
+    </h1>
 
 
-  <!-- =========================
-       PROMPTS
-  ========================= -->
+    <p class="tagline">
 
-  <section class="prompt-section">
+      Мы не возвращаемся в прошлое.
+      Мы возвращаемся к первым версиям будущего.
 
-    <h2>
-      PROMPTS
-    </h2>
+    </p>
 
-    <div class="prompt-list">
-
-      <div class="prompt-item">masterpiece</div>
-      <div class="prompt-item">best quality</div>
-      <div class="prompt-item">high quality</div>
-      <div class="prompt-item">highres</div>
-      <div class="prompt-item">4k</div>
-      <div class="prompt-item">8k</div>
-      <div class="prompt-item">ultra detailed</div>
-      <div class="prompt-item">highly detailed</div>
-      <div class="prompt-item">intricate details</div>
-      <div class="prompt-item">sharp focus</div>
-      <div class="prompt-item">photorealistic</div>
-      <div class="prompt-item">realistic</div>
-      <div class="prompt-item">ultra realistic</div>
-      <div class="prompt-item">hyperrealistic</div>
-      <div class="prompt-item">DSLR</div>
-      <div class="prompt-item">RAW photo</div>
-      <div class="prompt-item">35mm</div>
-      <div class="prompt-item">50mm</div>
-      <div class="prompt-item">85mm</div>
-      <div class="prompt-item">depth of field</div>
-      <div class="prompt-item">shallow depth of field</div>
-      <div class="prompt-item">bokeh</div>
-      <div class="prompt-item">film grain</div>
-      <div class="prompt-item">lens flare</div>
-      <div class="prompt-item">cinematic lighting</div>
-      <div class="prompt-item">dramatic lighting</div>
-      <div class="prompt-item">soft lighting</div>
-      <div class="prompt-item">studio lighting</div>
-      <div class="prompt-item">natural lighting</div>
-      <div class="prompt-item">volumetric lighting</div>
-      <div class="prompt-item">rim light</div>
-      <div class="prompt-item">golden hour</div>
-      <div class="prompt-item">digital art</div>
-      <div class="prompt-item">digital painting</div>
-      <div class="prompt-item">concept art</div>
-      <div class="prompt-item">fantasy art</div>
-      <div class="prompt-item">cinematic</div>
-      <div class="prompt-item">anime</div>
-      <div class="prompt-item">surreal</div>
-      <div class="prompt-item">illustration</div>
-      <div class="prompt-item">oil painting</div>
-      <div class="prompt-item">watercolor</div>
-      <div class="prompt-item">portrait</div>
-      <div class="prompt-item">close-up</div>
-      <div class="prompt-item">full body</div>
-      <div class="prompt-item">wide shot</div>
-      <div class="prompt-item">centered</div>
-      <div class="prompt-item">symmetrical</div>
-      <div class="prompt-item">dynamic pose</div>
-      <div class="prompt-item">looking at viewer</div>
-      <div class="prompt-item">trending on ArtStation</div>
-      <div class="prompt-item">ArtStation</div>
-      <div class="prompt-item">award winning</div>
-      <div class="prompt-item">beautiful</div>
-      <div class="prompt-item">amazing</div>
-      <div class="prompt-item">epic</div>
-      <div class="prompt-item">stunning</div>
-
-    </div>
-
-  </section>
+  </header>
 
 
-  <!-- =========================
+  <!-- =========================================
+       MAIN
+       ========================================= -->
+
+  <main>
+
+
+    <!-- =========================================
+         PHOTO GALLERY
+         ========================================= -->
+
+    <section class="photo-gallery">
+
+
+      <!-- =======================================
+           PHOTO 1 — NOISE
+           ======================================= -->
+
+      <article
+        class="photo-tile"
+        data-tile="0"
+      >
+
+        <img
+          id="noiseImage"
+          src="noise/noise1.png"
+          alt="Noise 1"
+          draggable="false"
+        >
+
+
+        <div
+          class="tile-side left"
+        ></div>
+
+
+        <div
+          class="tile-side right"
+        ></div>
+
+
+        <button
+          class="tile-arrow left"
+          type="button"
+          aria-label="Предыдущее изображение"
+          onclick="previousNoise(event)"
+        >
+
+          &#10094;
+
+        </button>
+
+
+        <button
+          class="tile-arrow right"
+          type="button"
+          aria-label="Следующее изображение"
+          onclick="nextNoise(event)"
+        >
+
+          &#10095;
+
+        </button>
+
+
+        <span class="tile-number">
+
+          01
+
+        </span>
+
+      </article>
+
+
+      <!-- =======================================
+           PHOTO 2
+           ======================================= -->
+
+      <article
+        class="photo-tile"
+        data-tile="1"
+      >
+
+        <img
+          src="47457457.png"
+          alt="Photo 2"
+          draggable="false"
+        >
+
+
+        <div
+          class="tile-side left"
+        ></div>
+
+
+        <div
+          class="tile-side right"
+        ></div>
+
+
+        <span class="tile-number">
+
+          02
+
+        </span>
+
+      </article>
+
+
+      <!-- =======================================
+           PHOTO 3
+           ======================================= -->
+
+      <article
+        class="photo-tile"
+        data-tile="2"
+      >
+
+        <img
+          src="generated_1234532523.png"
+          alt="Photo 3"
+          draggable="false"
+        >
+
+
+        <div
+          class="tile-side left"
+        ></div>
+
+
+        <div
+          class="tile-side right"
+        ></div>
+
+
+        <span class="tile-number">
+
+          03
+
+        </span>
+
+      </article>
+
+
+      <!-- =======================================
+           PHOTO 4
+           ======================================= -->
+
+      <article
+        class="photo-tile"
+        data-tile="3"
+      >
+
+        <img
+          src="generated_img2img_234967429.png"
+          alt="Photo 4"
+          draggable="false"
+        >
+
+
+        <div
+          class="tile-side left"
+        ></div>
+
+
+        <div
+          class="tile-side right"
+        ></div>
+
+
+        <span class="tile-number">
+
+          04
+
+        </span>
+
+      </article>
+
+
+      <!-- =======================================
+           PHOTO 5
+           ======================================= -->
+
+      <article
+        class="photo-tile"
+        data-tile="4"
+      >
+
+        <img
+          src="generated_img2img_29863429.png"
+          alt="Photo 5"
+          draggable="false"
+        >
+
+
+        <div
+          class="tile-side left"
+        ></div>
+
+
+        <div
+          class="tile-side right"
+        ></div>
+
+
+        <span class="tile-number">
+
+          05
+
+        </span>
+
+      </article>
+
+
+      <!-- =======================================
+           PHOTO 6
+           ======================================= -->
+
+      <article
+        class="photo-tile"
+        data-tile="5"
+      >
+
+        <img
+          src="generated_img2img_9988.png"
+          alt="Photo 6"
+          draggable="false"
+        >
+
+
+        <div
+          class="tile-side left"
+        ></div>
+
+
+        <div
+          class="tile-side right"
+        ></div>
+
+
+        <span class="tile-number">
+
+          06
+
+        </span>
+
+      </article>
+
+
+      <!-- =======================================
+           PHOTO 7
+           ======================================= -->
+
+      <article
+        class="photo-tile"
+        data-tile="6"
+      >
+
+        <img
+          src="generated_txt2img_234929.png"
+          alt="Photo 7"
+          draggable="false"
+        >
+
+
+        <div
+          class="tile-side left"
+        ></div>
+
+
+        <div
+          class="tile-side right"
+        ></div>
+
+
+        <span class="tile-number">
+
+          07
+
+        </span>
+
+      </article>
+
+
+      <!-- =======================================
+           PHOTO 8
+           ======================================= -->
+
+      <article
+        class="photo-tile"
+        data-tile="7"
+      >
+
+        <img
+          src="457357.png"
+          alt="Photo 8"
+          draggable="false"
+        >
+
+
+        <div
+          class="tile-side left"
+        ></div>
+
+
+        <div
+          class="tile-side right"
+        ></div>
+
+
+        <span class="tile-number">
+
+          08
+
+        </span>
+
+      </article>
+
+
+      <!-- =======================================
+           PHOTO 9
+           ======================================= -->
+
+      <article
+        class="photo-tile"
+        data-tile="8"
+      >
+
+        <img
+          src="47457457.png"
+          alt="Photo 9"
+          draggable="false"
+        >
+
+
+        <div
+          class="tile-side left"
+        ></div>
+
+
+        <div
+          class="tile-side right"
+        ></div>
+
+
+        <span class="tile-number">
+
+          09
+
+        </span>
+
+      </article>
+
+
+      <!-- =======================================
+           PHOTO 10
+           ======================================= -->
+
+      <article
+        class="photo-tile"
+        data-tile="9"
+      >
+
+        <img
+          src="generated_1234532523.png"
+          alt="Photo 10"
+          draggable="false"
+        >
+
+
+        <div
+          class="tile-side left"
+        ></div>
+
+
+        <div
+          class="tile-side right"
+        ></div>
+
+
+        <span class="tile-number">
+
+          10
+
+        </span>
+
+      </article>
+
+
+      <!-- =======================================
+           PHOTO 11
+           ======================================= -->
+
+      <article
+        class="photo-tile"
+        data-tile="10"
+      >
+
+        <img
+          src="generated_img2img_234967429.png"
+          alt="Photo 11"
+          draggable="false"
+        >
+
+
+        <div
+          class="tile-side left"
+        ></div>
+
+
+        <div
+          class="tile-side right"
+        ></div>
+
+
+        <span class="tile-number">
+
+          11
+
+        </span>
+
+      </article>
+
+
+      <!-- =======================================
+           PHOTO 12
+           ======================================= -->
+
+      <article
+        class="photo-tile"
+        data-tile="11"
+      >
+
+        <img
+          src="generated_img2img_29863429.png"
+          alt="Photo 12"
+          draggable="false"
+        >
+
+
+        <div
+          class="tile-side left"
+        ></div>
+
+
+        <div
+          class="tile-side right"
+        ></div>
+
+
+        <span class="tile-number">
+
+          12
+
+        </span>
+
+      </article>
+
+
+    </section>
+
+
+    <!-- =========================================
+         ERROR
+         ========================================= -->
+
+    <section class="error-block">
+
+      <h2>
+
+        Error
+
+      </h2>
+
+
+      <ul class="error-list">
+
+        <li>
+          <span>
+            Six Fingers — шесть пальцев
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Extra Fingers — лишние пальцы
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Melted Hands — слипшиеся и плавящиеся кисти
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Broken Hands — неправильная анатомия рук
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Extra Limbs — лишние конечности
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Broken Anatomy — невозможная анатомия
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Double Face — двойное лицо
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Melted Face — плавящееся лицо
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Asymmetric Eyes — асимметричные глаза
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Wrong Eyes — неправильное направление взгляда
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Synthetic Smile — искажённые зубы и улыбка
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Mutated Ears — деформированные или лишние уши
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Face Collision — смешение нескольких лиц
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Object Collision — слияние разных объектов
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Object Duplication — повторение одного объекта
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Floating Objects — парящие детали
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Material Fusion — слияние материалов
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Clothing Fusion — одежда, сросшаяся с телом
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Impossible Clothing — невозможная конструкция одежды
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Broken Jewelry — деформированные украшения
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Broken Glasses — искажённые очки
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Mirror Error — неправильное отражение
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Shadow Error — неправильные тени
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Light Error — неправильное освещение
+          </span>
+        </li>
+
+        <li>
+          <span>
+            Background Anatomy — странные люди
+          </span>
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <!-- =========================================
+         PROMPT
+         ========================================= -->
+
+    <section class="prompt-block">
+
+      <h2>
+
+        Prompt
+
+      </h2>
+
+
+      <ul class="prompt-list">
+
+        <li>masterpiece</li>
+        <li>best quality</li>
+        <li>high quality</li>
+        <li>highres</li>
+        <li>4k</li>
+        <li>8k</li>
+        <li>ultra detailed</li>
+        <li>highly detailed</li>
+        <li>intricate details</li>
+        <li>sharp focus</li>
+        <li>photorealistic</li>
+        <li>realistic</li>
+        <li>ultra realistic</li>
+        <li>hyperrealistic</li>
+        <li>DSLR</li>
+        <li>RAW photo</li>
+        <li>35mm</li>
+        <li>50mm</li>
+        <li>85mm</li>
+        <li>depth of field</li>
+        <li>shallow depth of field</li>
+        <li>bokeh</li>
+        <li>film grain</li>
+        <li>lens flare</li>
+        <li>cinematic lighting</li>
+        <li>dramatic lighting</li>
+        <li>soft lighting</li>
+        <li>studio lighting</li>
+        <li>natural lighting</li>
+        <li>volumetric lighting</li>
+        <li>rim light</li>
+        <li>golden hour</li>
+        <li>digital art</li>
+        <li>digital painting</li>
+        <li>concept art</li>
+        <li>fantasy art</li>
+        <li>cinematic</li>
+        <li>anime</li>
+        <li>surreal</li>
+        <li>illustration</li>
+        <li>oil painting</li>
+        <li>watercolor</li>
+        <li>portrait</li>
+        <li>close-up</li>
+        <li>full body</li>
+        <li>wide shot</li>
+        <li>centered</li>
+        <li>symmetrical</li>
+        <li>dynamic pose</li>
+        <li>looking at viewer</li>
+        <li>trending on ArtStation</li>
+        <li>ArtStation</li>
+        <li>award winning</li>
+        <li>beautiful</li>
+        <li>amazing</li>
+        <li>epic</li>
+        <li>stunning</li>
+
+      </ul>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================
        FOOTER
-  ========================= -->
+       ========================================= -->
 
   <footer>
-    VERSION
+
+    &copy; Version 2024
+
   </footer>
 
 
+  <!-- =========================================
+       JAVASCRIPT
+       ========================================= -->
+
   <script>
 
+
     /* =====================================================
-       НАСТРОЙКИ ПЕРВОЙ ЯЧЕЙКИ
-    ===================================================== */
+       NOISE PHOTO ARRAY
+       
+       Первая ячейка использует эту папку.
+       
+       Если добавляются новые файлы, добавьте их сюда.
+       ===================================================== */
 
     const noisePhotos = [
 
@@ -1388,68 +1960,144 @@
 
 
     /* =====================================================
-       ТЕКУЩАЯ КАРТИНКА
-    ===================================================== */
+       НАСТРОЙКИ АВТООБНОВЛЕНИЯ
+       ===================================================== */
+
+    const NOISE_CHANGE_INTERVAL = 15000;
+
+
+    /* =====================================================
+       ТЕКУЩЕЕ ИЗОБРАЖЕНИЕ
+       ===================================================== */
 
     let currentNoiseIndex = 0;
 
 
     const noiseImage =
-      document.getElementById("noiseImage");
+      document.getElementById(
+        "noiseImage"
+      );
 
 
     /* =====================================================
        ПЕРЕКЛЮЧЕНИЕ ИЗОБРАЖЕНИЯ
-    ===================================================== */
+       ===================================================== */
 
-    function showNoiseImage(index) {
+    function showNoiseImage(
+      index,
+      animate = true
+    ) {
 
       if (!noiseImage) {
+
         return;
+
       }
 
-      if (noisePhotos.length === 0) {
+
+      if (
+        !Array.isArray(noisePhotos) ||
+        noisePhotos.length === 0
+      ) {
+
         return;
+
       }
+
 
       currentNoiseIndex =
-        (index + noisePhotos.length)
-        % noisePhotos.length;
+        (
+          index +
+          noisePhotos.length
+        ) %
+        noisePhotos.length;
 
 
-      const nextSource =
-        noisePhotos[currentNoiseIndex];
+      const newSource =
+        noisePhotos[
+          currentNoiseIndex
+        ];
 
 
-      noiseImage.style.opacity = "0";
-
-
-      setTimeout(function () {
+      if (!animate) {
 
         noiseImage.src =
-          nextSource;
+          newSource;
 
         noiseImage.alt =
           "Noise " +
-          (currentNoiseIndex + 1);
+          (
+            currentNoiseIndex + 1
+          );
 
-        noiseImage.style.opacity = "1";
+        noiseImage.style.opacity =
+          "1";
 
-      }, 180);
+        return;
+
+      }
+
+
+      noiseImage.style.opacity =
+        "0";
+
+
+      setTimeout(
+        function () {
+
+          noiseImage.src =
+            newSource;
+
+          noiseImage.alt =
+            "Noise " +
+            (
+              currentNoiseIndex + 1
+            );
+
+
+          const showImage =
+            function () {
+
+              noiseImage.style.opacity =
+                "1";
+
+            };
+
+
+          if (
+            noiseImage.complete
+          ) {
+
+            showImage();
+
+          } else {
+
+            noiseImage.onload =
+              showImage;
+
+          }
+
+        },
+        180
+      );
 
     }
 
 
     /* =====================================================
-       СЛЕДУЮЩЕЕ ФОТО
-    ===================================================== */
+       СЛЕДУЮЩАЯ КАРТИНКА
+       ===================================================== */
 
     function nextNoise(event) {
 
       if (event) {
+
         event.preventDefault();
+
         event.stopPropagation();
+
       }
+
 
       showNoiseImage(
         currentNoiseIndex + 1
@@ -1459,15 +2107,19 @@
 
 
     /* =====================================================
-       ПРЕДЫДУЩЕЕ ФОТО
-    ===================================================== */
+       ПРЕДЫДУЩАЯ КАРТИНКА
+       ===================================================== */
 
     function previousNoise(event) {
 
       if (event) {
+
         event.preventDefault();
+
         event.stopPropagation();
+
       }
+
 
       showNoiseImage(
         currentNoiseIndex - 1
@@ -1477,68 +2129,106 @@
 
 
     /* =====================================================
-       АВТОМАТИЧЕСКОЕ ПЕРЕЛИСТЫВАНИЕ
-       КАЖДЫЕ 15 СЕКУНД
-    ===================================================== */
+       АВТООБНОВЛЕНИЕ КАЖДЫЕ 15 СЕКУНД
+       ===================================================== */
 
-    const NOISE_INTERVAL =
-      15000;
+    function startNoiseTimer() {
 
+      setInterval(
+        function () {
 
-    setInterval(function () {
+          nextNoise();
 
-      nextNoise();
+        },
+        NOISE_CHANGE_INTERVAL
+      );
 
-    }, NOISE_INTERVAL);
+    }
 
 
     /* =====================================================
        СЛУЧАЙНЫЙ СТАРТ
-       При открытии сайта первая картинка начинает
-       обновляться не синхронно с другими элементами.
-    ===================================================== */
+       
+       При каждом открытии сайта первая ячейка
+       начинает автоматическую смену в случайный
+       момент от 0 до 15 секунд.
+       
+       После первого переключения:
+       строго каждые 15 секунд.
+       ===================================================== */
 
-    const randomStartDelay =
-      Math.floor(
-        Math.random() * NOISE_INTERVAL
-      );
+    function startRandomNoiseUpdate() {
 
-
-    setTimeout(function () {
-
-      nextNoise();
-
-    }, randomStartDelay);
-
-
-    /* =====================================================
-       ЗАПРЕТ DRAG ДЛЯ ФОТО
-    ===================================================== */
-
-    document
-      .querySelectorAll(".photo-tile img")
-      .forEach(function (image) {
-
-        image.addEventListener(
-          "dragstart",
-          function (event) {
-
-            event.preventDefault();
-
-          }
+      const randomDelay =
+        Math.floor(
+          Math.random() *
+          NOISE_CHANGE_INTERVAL
         );
 
-      });
+
+      setTimeout(
+        function () {
+
+          nextNoise();
+
+          startNoiseTimer();
+
+        },
+        randomDelay
+      );
+
+    }
 
 
     /* =====================================================
-       ПЕРЕТАСКИВАНИЕ USER PANEL
-    ===================================================== */
+       ПРЕДЗАГРУЗКА NOISE-ФОТО
+       
+       Благодаря этому следующий кадр уже будет
+       загружен браузером заранее.
+       ===================================================== */
+
+    function preloadNoiseImages() {
+
+      noisePhotos.forEach(
+        function (source) {
+
+          const image =
+            new Image();
+
+          image.src =
+            source;
+
+        }
+      );
+
+    }
+
+
+    /* =====================================================
+       ЗАПУСК NOISE
+       ===================================================== */
+
+    preloadNoiseImages();
+
+
+    showNoiseImage(
+      0,
+      false
+    );
+
+
+    startRandomNoiseUpdate();
+
+
+    /* =====================================================
+       DRAG USER PANEL
+       ===================================================== */
 
     const userPanel =
       document.getElementById(
         "userPanel"
       );
+
 
     const userPanelHeader =
       document.getElementById(
@@ -1546,74 +2236,140 @@
       );
 
 
-    let draggingPanel = false;
+    let isDragging =
+      false;
 
-    let panelOffsetX = 0;
 
-    let panelOffsetY = 0;
+    let startX =
+      0;
 
+
+    let startY =
+      0;
+
+
+    let startLeft =
+      0;
+
+
+    let startTop =
+      0;
+
+
+    /* =====================================================
+       НАЖАТИЕ НА USER
+       ===================================================== */
 
     userPanelHeader.addEventListener(
       "pointerdown",
       function (event) {
 
-        draggingPanel = true;
+        event.preventDefault();
 
 
         const rect =
           userPanel.getBoundingClientRect();
 
 
-        panelOffsetX =
-          event.clientX - rect.left;
-
-        panelOffsetY =
-          event.clientY - rect.top;
-
-
         userPanel.style.left =
           rect.left + "px";
+
 
         userPanel.style.top =
           rect.top + "px";
 
+
         userPanel.style.right =
           "auto";
+
+
+        userPanel.style.bottom =
+          "auto";
+
+
+        startX =
+          event.clientX;
+
+
+        startY =
+          event.clientY;
+
+
+        startLeft =
+          rect.left;
+
+
+        startTop =
+          rect.top;
+
+
+        isDragging =
+          true;
 
 
         userPanelHeader.setPointerCapture(
           event.pointerId
         );
 
+
+        userPanelHeader.style.cursor =
+          "grabbing";
+
       }
     );
 
+
+    /* =====================================================
+       ПЕРЕМЕЩЕНИЕ USER
+       ===================================================== */
 
     userPanelHeader.addEventListener(
       "pointermove",
       function (event) {
 
-        if (!draggingPanel) {
+        if (!isDragging) {
+
           return;
+
         }
 
 
-        let newLeft =
+        const deltaX =
           event.clientX -
-          panelOffsetX;
+          startX;
+
+
+        const deltaY =
+          event.clientY -
+          startY;
+
+
+        let newLeft =
+          startLeft +
+          deltaX;
+
 
         let newTop =
-          event.clientY -
-          panelOffsetY;
+          startTop +
+          deltaY;
+
+
+        const panelWidth =
+          userPanel.offsetWidth;
+
+
+        const panelHeight =
+          userPanel.offsetHeight;
 
 
         const maxLeft =
           window.innerWidth -
-          userPanel.offsetWidth;
+          panelWidth;
+
 
         const maxTop =
           window.innerHeight -
-          userPanel.offsetHeight;
+          panelHeight;
 
 
         newLeft =
@@ -1639,6 +2395,7 @@
         userPanel.style.left =
           newLeft + "px";
 
+
         userPanel.style.top =
           newTop + "px";
 
@@ -1646,11 +2403,16 @@
     );
 
 
+    /* =====================================================
+       ОТПУСКАНИЕ USER
+       ===================================================== */
+
     userPanelHeader.addEventListener(
       "pointerup",
       function (event) {
 
-        draggingPanel = false;
+        isDragging =
+          false;
 
 
         try {
@@ -1659,22 +2421,103 @@
             event.pointerId
           );
 
-        } catch (error) {}
+        } catch (error) {
+
+        }
+
+
+        userPanelHeader.style.cursor =
+          "move";
 
       }
     );
 
+
+    /* =====================================================
+       ОТМЕНА ПЕРЕМЕЩЕНИЯ
+       ===================================================== */
 
     userPanelHeader.addEventListener(
       "pointercancel",
       function () {
 
-        draggingPanel = false;
+        isDragging =
+          false;
+
+
+        userPanelHeader.style.cursor =
+          "move";
 
       }
     );
 
+
+    /* =====================================================
+       ЗАЩИТА ОТ DRAG ФОТО
+       ===================================================== */
+
+    document
+      .querySelectorAll(
+        ".photo-tile img"
+      )
+      .forEach(
+        function (image) {
+
+          image.addEventListener(
+            "dragstart",
+            function (event) {
+
+              event.preventDefault();
+
+            }
+          );
+
+        }
+      );
+
+
+    /* =====================================================
+       BUTTON: STYLES
+       ===================================================== */
+
+    document
+      .getElementById(
+        "stylesButton"
+      )
+      .addEventListener(
+        "click",
+        function () {
+
+          console.log(
+            "Открыть раздел Стили"
+          );
+
+        }
+      );
+
+
+    /* =====================================================
+       BUTTON: GENERATION
+       ===================================================== */
+
+    document
+      .getElementById(
+        "generationButton"
+      )
+      .addEventListener(
+        "click",
+        function () {
+
+          console.log(
+            "Открыть раздел Генерация"
+          );
+
+        }
+      );
+
+
   </script>
+
 
 </body>
 
