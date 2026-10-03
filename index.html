@@ -256,11 +256,9 @@
       opacity: 1;
 
       /*
-       * ИЗМЕНЕНО:
-       * изображение теперь находится
-       * выше боковой тени
+       * ФОТОГРАФИЯ — НИЖНИЙ СЛОЙ
        */
-      z-index: 2;
+      z-index: 1;
 
       transition:
         opacity 0.25s ease,
@@ -295,10 +293,9 @@
       width: 28%;
 
       /*
-       * ИЗМЕНЕНО:
-       * тень теперь находится под изображением
+       * ТЁМНЫЕ КРАЯ — ПОВЕРХ ФОТО
        */
-      z-index: 1;
+      z-index: 2;
 
       opacity: 0;
 
@@ -375,6 +372,9 @@
 
       top: 50%;
 
+      /*
+       * СТРЕЛКИ — САМЫЙ ВЕРХНИЙ СЛОЙ
+       */
       z-index: 3;
 
       width: 44px;
@@ -1410,21 +1410,17 @@
           alt="Фотография 01"
         >
 
-
         <span class="tile-number">
           01
         </span>
-
 
         <div
           class="tile-side tile-side-left"
         ></div>
 
-
         <div
           class="tile-side tile-side-right"
         ></div>
-
 
         <button
           class="tile-arrow tile-arrow-left"
@@ -1434,7 +1430,6 @@
         >
           &#10094;
         </button>
-
 
         <button
           class="tile-arrow tile-arrow-right"
@@ -1960,24 +1955,43 @@
       <ul class="error-list">
 
         <li><span>Six Fingers — шесть пальцев</span></li>
+
         <li><span>Extra Fingers — лишние пальцы</span></li>
+
         <li><span>Melted Hands — слипшиеся и плавящиеся кисти</span></li>
+
         <li><span>Broken Hands — неправильная анатомия рук</span></li>
+
         <li><span>Extra Limbs — лишние конечности</span></li>
+
         <li><span>Broken Anatomy — невозможная анатомия</span></li>
+
         <li><span>Double Face — двойное лицо</span></li>
+
         <li><span>Melted Face — плавящееся лицо</span></li>
+
         <li><span>Asymmetric Eyes — асимметричные глаза</span></li>
+
         <li><span>Wrong Eyes — неправильное направление взгляда</span></li>
+
         <li><span>Synthetic Smile — искажённые зубы и улыбка</span></li>
+
         <li><span>Mutated Ears — деформированные или лишние уши</span></li>
+
         <li><span>Face Collision — смешение нескольких лиц</span></li>
+
         <li><span>Object Collision — слияние разных объектов</span></li>
+
         <li><span>Object Duplication — повторение одного объекта</span></li>
+
         <li><span>Floating Objects — парящие детали</span></li>
+
         <li><span>Material Fusion — слияние материалов</span></li>
+
         <li><span>Clothing Fusion — одежда, сросшаяся с телом</span></li>
+
         <li><span>Impossible Clothing — невозможная конструкция одежды</span></li>
+
         <li><span>Broken Jewelry — деформированные украшения</span></li>
 
       </ul>
@@ -2042,14 +2056,16 @@
 
   <script>
 
-    /*
-     * Панель пользователя
-     */
+
+    /* =========================================
+       ПЕРЕТАСКИВАНИЕ USER MENU
+       ========================================= */
 
     const userPanel =
       document.getElementById(
         "userPanel"
       );
+
 
     const userPanelHeader =
       document.getElementById(
@@ -2081,9 +2097,11 @@
           event.clientY -
           rect.top;
 
-        userPanel.style.right = "auto";
+        userPanel.style.right =
+          "auto";
 
-        userPanel.style.bottom = "auto";
+        userPanel.style.bottom =
+          "auto";
 
       }
     );
@@ -2123,9 +2141,9 @@
     );
 
 
-    /*
-     * Touch
-     */
+    /* =========================================
+       TOUCH
+       ========================================= */
 
     userPanelHeader.addEventListener(
       "touchstart",
@@ -2145,9 +2163,11 @@
           touch.clientY -
           rect.top;
 
-        userPanel.style.right = "auto";
+        userPanel.style.right =
+          "auto";
 
-        userPanel.style.bottom = "auto";
+        userPanel.style.bottom =
+          "auto";
 
       },
       {
