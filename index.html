@@ -6,6 +6,7 @@
   <title>Version</title>
 
   <style>
+
     :root {
       --bg-dark: #121212;
       --panel-darker: #1a1a1a;
@@ -17,17 +18,20 @@
       --prompt-green: #30d158;
     }
 
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+
     html,
     body {
       width: 100%;
       min-height: 100%;
     }
+
 
     body {
       background: var(--bg-dark);
@@ -52,9 +56,10 @@
       background-image: none;
     }
 
-    /* =========================
+
+    /* =========================================
        HEADER
-       ========================= */
+       ========================================= */
 
     header {
       width: 100%;
@@ -69,6 +74,7 @@
       background-image: none;
     }
 
+
     h1 {
       font-size: clamp(2.5rem, 10vw, 5rem);
       line-height: 1;
@@ -82,6 +88,7 @@
 
       text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
     }
+
 
     .tagline {
       display: block;
@@ -98,9 +105,10 @@
       text-align: center;
     }
 
-    /* =========================
+
+    /* =========================================
        MAIN
-       ========================= */
+       ========================================= */
 
     main {
       flex: 1;
@@ -114,9 +122,10 @@
       background-image: none;
     }
 
-    /* =========================
+
+    /* =========================================
        PHOTO GALLERY
-       ========================= */
+       ========================================= */
 
     .photo-gallery {
       width: 100%;
@@ -132,6 +141,7 @@
       background: transparent;
     }
 
+
     .gallery-frame {
       width: min(900px, 75vw);
       height: min(600px, 60vw);
@@ -144,6 +154,7 @@
 
       background: transparent;
     }
+
 
     .gallery-frame img {
       max-width: 100%;
@@ -160,6 +171,7 @@
 
       transition: opacity 0.2s ease;
     }
+
 
     .gallery-arrow {
       width: 52px;
@@ -188,6 +200,7 @@
         transform 0.2s ease;
     }
 
+
     .gallery-arrow:hover {
       background: rgba(255, 255, 255, 0.08);
 
@@ -196,13 +209,200 @@
       transform: scale(1.05);
     }
 
+
     .gallery-arrow:active {
       transform: scale(0.95);
     }
 
-    /* =========================
+
+    /* =========================================
+       USER BAR MENU
+       ========================================= */
+
+    .user-panel {
+      position: fixed;
+
+      top: 25px;
+      right: 25px;
+
+      width: 210px;
+
+      background: #151515;
+
+      /* Внешняя обводка убрана */
+      border: none;
+
+      /* Внешняя тень убрана */
+      box-shadow: none;
+
+      z-index: 9999;
+
+      user-select: none;
+
+      touch-action: none;
+    }
+
+
+    /* =========================================
+       USER BAR HEADER
+       ========================================= */
+
+    .user-panel-header {
+      width: 100%;
+
+      height: 42px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 0 10px;
+
+      background: #1a1a1a;
+
+      border-bottom:
+        1px solid rgba(255, 255, 255, 0.12);
+
+      color: var(--text-main);
+
+      font-size: 12px;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      cursor: move;
+
+      touch-action: none;
+    }
+
+
+    /* =========================================
+       MENU
+       ========================================= */
+
+    .user-panel-menu {
+      display: flex;
+
+      flex-direction: column;
+
+      width: 100%;
+
+      padding: 8px;
+    }
+
+
+    /* =========================================
+       КНОПКИ BAR MENU
+       ========================================= */
+
+    .user-panel-button {
+      width: 100%;
+
+      height: 42px;
+
+      margin-bottom: 6px;
+
+      border:
+        1px solid rgba(255, 255, 255, 0.10);
+
+      border-radius: 0;
+
+      background:
+        rgba(255, 255, 255, 0.025);
+
+      color: var(--text-main);
+
+      font-family: inherit;
+
+      font-size: 13px;
+
+      font-weight: 400;
+
+      text-align: center;
+
+      padding: 0 10px;
+
+      cursor: pointer;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+
+    .user-panel-button:last-child {
+      margin-bottom: 0;
+    }
+
+
+    /* =========================================
+       БЕЛАЯ ПОДСВЕТКА
+       ========================================= */
+
+    .user-panel-button:hover {
+      background:
+        rgba(255, 255, 255, 0.07);
+
+      border-color:
+        rgba(255, 255, 255, 0.65);
+
+      color: #ffffff;
+
+      box-shadow:
+        0 0 8px rgba(255, 255, 255, 0.15);
+    }
+
+
+    .user-panel-button:active {
+      background:
+        rgba(255, 255, 255, 0.12);
+
+      border-color:
+        rgba(255, 255, 255, 0.8);
+
+      box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+
+    /* =========================================
+       ПУСТЫЕ КНОПКИ
+       ========================================= */
+
+    .user-panel-button.placeholder {
+      color: #666666;
+
+      cursor: default;
+    }
+
+
+    .user-panel-button.placeholder:hover {
+      background:
+        rgba(255, 255, 255, 0.025);
+
+      border-color:
+        rgba(255, 255, 255, 0.10);
+
+      color: #666666;
+
+      box-shadow: none;
+    }
+
+
+    /* =========================================
        ERROR BLOCK
-       ========================= */
+       ========================================= */
 
     .error-block {
       width: 100%;
@@ -212,7 +412,6 @@
       padding: 3rem 2rem;
 
       border: none;
-      border-left: none;
 
       box-shadow: none;
 
@@ -220,6 +419,7 @@
 
       margin-bottom: 3rem;
     }
+
 
     .error-block h2 {
       font-size: 2rem;
@@ -234,6 +434,7 @@
 
       text-align: center;
     }
+
 
     .error-list {
       list-style: none;
@@ -251,6 +452,7 @@
 
       margin: 0 auto;
     }
+
 
     .error-list li {
       padding: 10px;
@@ -271,6 +473,7 @@
       background-image: none;
     }
 
+
     .error-list li:hover {
       background: rgba(255, 59, 48, 0.1);
 
@@ -279,8 +482,10 @@
       transform: translateX(5px);
     }
 
+
     .error-list li::before {
-      content: counter(error-count, decimal-leading-zero) ". ";
+      content:
+        counter(error-count, decimal-leading-zero) ". ";
 
       color: var(--error-red);
 
@@ -289,13 +494,15 @@
       margin-right: 10px;
     }
 
+
     .error-list span {
       color: var(--text-main);
     }
 
-    /* =========================
+
+    /* =========================================
        PROMPT BLOCK
-       ========================= */
+       ========================================= */
 
     .prompt-block {
       width: 100%;
@@ -313,6 +520,7 @@
       margin-bottom: 3rem;
     }
 
+
     .prompt-block h2 {
       font-size: 2rem;
 
@@ -326,6 +534,7 @@
 
       text-align: center;
     }
+
 
     .prompt-list {
       list-style: none;
@@ -342,7 +551,6 @@
       margin: 0 auto;
     }
 
-    /* Каждое слово — отдельная ячейка */
 
     .prompt-list li {
       min-height: 58px;
@@ -373,7 +581,6 @@
       cursor: default;
     }
 
-    /* Зеленая подсветка при наведении */
 
     .prompt-list li:hover {
       background: rgba(48, 209, 88, 0.1);
@@ -388,9 +595,10 @@
         0 0 15px rgba(48, 209, 88, 0.08);
     }
 
-    /* =========================
+
+    /* =========================================
        FOOTER
-       ========================= */
+       ========================================= */
 
     footer {
       padding: 1.5rem 1rem;
@@ -404,13 +612,14 @@
       border: none;
 
       background: transparent;
+
       background-image: none;
     }
 
-    /* =========================
-       ПОЛНОЕ УДАЛЕНИЕ
-       ФОНОВЫХ ЭЛЕМЕНТОВ
-       ========================= */
+
+    /* =========================================
+       УДАЛЕНИЕ ФОНОВЫХ ЭЛЕМЕНТОВ
+       ========================================= */
 
     body::before,
     body::after,
@@ -435,9 +644,10 @@
       animation: none !important;
     }
 
-    /* =========================
+
+    /* =========================================
        MOBILE
-       ========================= */
+       ========================================= */
 
     @media (max-width: 600px) {
 
@@ -445,15 +655,16 @@
         padding: 3rem 1rem;
       }
 
+
       h1 {
         font-size: 3rem;
       }
+
 
       .tagline {
         font-size: 1rem;
       }
 
-      /* Галерея */
 
       .photo-gallery {
         padding: 1rem 0.5rem 4rem;
@@ -461,95 +672,240 @@
         gap: 0.5rem;
       }
 
+
       .gallery-frame {
         width: calc(100vw - 100px);
+
         height: 70vw;
       }
 
+
       .gallery-arrow {
         width: 40px;
+
         height: 40px;
 
         font-size: 22px;
       }
 
+
+      .user-panel {
+        width: 180px;
+
+        top: 15px;
+
+        right: 15px;
+      }
+
+
+      .user-panel-header {
+        height: 38px;
+      }
+
+
+      .user-panel-button {
+        height: 38px;
+
+        font-size: 12px;
+      }
+
+
       .error-block {
         padding: 3rem 1.25rem;
       }
+
 
       .prompt-block {
         padding: 3rem 1.25rem;
       }
 
+
       .error-list {
         grid-template-columns: 1fr;
       }
 
+
       .prompt-list {
         grid-template-columns: 1fr;
       }
+
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- =========================
+
+  <!-- =========================================
+       USER BAR MENU
+       ========================================= -->
+
+  <div
+    class="user-panel"
+    id="userPanel">
+
+
+    <!-- ЗА ЭТУ ОБЛАСТЬ ПЕРЕТАСКИВАНИЕ -->
+
+    <div
+      class="user-panel-header"
+      id="userPanelHeader">
+
+      USER
+
+    </div>
+
+
+    <!-- МЕНЮ -->
+
+    <div class="user-panel-menu">
+
+
+      <button
+        class="user-panel-button"
+        id="stylesButton">
+
+        Стили
+
+      </button>
+
+
+      <button
+        class="user-panel-button"
+        id="generationButton">
+
+        Генерация
+
+      </button>
+
+
+      <!-- 5 ПУСТЫХ КНОПОК -->
+
+      <button
+        class="user-panel-button placeholder">
+
+        —
+
+      </button>
+
+
+      <button
+        class="user-panel-button placeholder">
+
+        —
+
+      </button>
+
+
+      <button
+        class="user-panel-button placeholder">
+
+        —
+
+      </button>
+
+
+      <button
+        class="user-panel-button placeholder">
+
+        —
+
+      </button>
+
+
+      <button
+        class="user-panel-button placeholder">
+
+        —
+
+      </button>
+
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================
        HEADER
-       ========================= -->
+       ========================================= -->
 
   <header>
 
-    <h1>VERSION</h1>
+    <h1>
+      VERSION
+    </h1>
+
 
     <p class="tagline">
-      Мы не возвращаемся в прошлое. Мы возвращаемся к первым версиям будущего.
+
+      Мы не возвращаемся в прошлое.
+      Мы возвращаемся к первым версиям будущего.
+
     </p>
 
   </header>
 
 
+  <!-- =========================================
+       MAIN
+       ========================================= -->
+
   <main>
 
-    <!-- =========================
+
+    <!-- =========================================
          PHOTO GALLERY
-         ========================= -->
+         ========================================= -->
 
     <section class="photo-gallery">
 
+
       <button
-        class="gallery-arrow gallery-prev"
+        class="gallery-arrow"
         id="prevPhoto"
         aria-label="Предыдущее фото">
+
         &#10094;
+
       </button>
+
 
       <div class="gallery-frame">
 
         <img
           id="galleryImage"
-          src="photo1.png"
+          src="457357.png"
           alt="Version archive">
 
       </div>
 
+
       <button
-        class="gallery-arrow gallery-next"
+        class="gallery-arrow"
         id="nextPhoto"
         aria-label="Следующее фото">
+
         &#10095;
+
       </button>
+
 
     </section>
 
 
-    <!-- =========================
-         BLOCK 2 — ERROR
-         ========================= -->
+    <!-- =========================================
+         ERROR
+         ========================================= -->
 
     <section class="error-block">
 
-      <h2>Error</h2>
+      <h2>
+        Error
+      </h2>
+
 
       <ul class="error-list">
 
@@ -584,13 +940,16 @@
     </section>
 
 
-    <!-- =========================
-         BLOCK 3 — PROMPT
-         ========================= -->
+    <!-- =========================================
+         PROMPT
+         ========================================= -->
 
     <section class="prompt-block">
 
-      <h2>Prompt</h2>
+      <h2>
+        Prompt
+      </h2>
+
 
       <ul class="prompt-list">
 
@@ -659,9 +1018,9 @@
   </main>
 
 
-  <!-- =========================
+  <!-- =========================================
        FOOTER
-       ========================= -->
+       ========================================= -->
 
   <footer>
 
@@ -670,39 +1029,28 @@
   </footer>
 
 
-  <!-- =========================
-       PHOTO GALLERY JAVASCRIPT
-       ========================= -->
+  <!-- =========================================
+       JAVASCRIPT
+       ========================================= -->
 
   <script>
 
-    /*
-      ==================================================
-      СПИСОК ФОТО
 
-      Файлы должны находиться в той же папке,
-      что и index.html.
-
-      Например:
-
-      index.html
-      photo1.png
-      photo2.png
-      photo3.png
-      photo4.png
-
-      ==================================================
-    */
+    /* =========================================
+       PHOTO GALLERY
+       ========================================= */
 
     const photos = [
-  "457357.png",
-  "47457457.png",
-  "generated_1234532523.png",
-  "generated_img2img_234967429.png",
-  "generated_img2img_29863429.png",
-  "generated_img2img_9988.png",
-  "generated_txt2img_234929.png"
-];
+
+      "457357.png",
+      "47457457.png",
+      "generated_1234532523.png",
+      "generated_img2img_234967429.png",
+      "generated_img2img_29863429.png",
+      "generated_img2img_9988.png",
+      "generated_txt2img_234929.png"
+
+    ];
 
 
     let currentPhoto = 0;
@@ -711,18 +1059,14 @@
     const galleryImage =
       document.getElementById("galleryImage");
 
+
     const prevPhoto =
       document.getElementById("prevPhoto");
+
 
     const nextPhoto =
       document.getElementById("nextPhoto");
 
-
-    /*
-      ==================================================
-      ПОКАЗ ФОТО
-      ==================================================
-    */
 
     function showPhoto(index) {
 
@@ -749,60 +1093,263 @@
     }
 
 
-    /*
-      ==================================================
-      ПРЕДЫДУЩЕЕ ФОТО
-      ==================================================
-    */
+    prevPhoto.addEventListener(
+      "click",
+      () => {
 
-    prevPhoto.addEventListener("click", () => {
+        showPhoto(currentPhoto - 1);
 
-      showPhoto(currentPhoto - 1);
-
-    });
+      }
+    );
 
 
-    /*
-      ==================================================
-      СЛЕДУЮЩЕЕ ФОТО
-      ==================================================
-    */
+    nextPhoto.addEventListener(
+      "click",
+      () => {
 
-    nextPhoto.addEventListener("click", () => {
+        showPhoto(currentPhoto + 1);
 
-      showPhoto(currentPhoto + 1);
+      }
+    );
 
-    });
-
-
-    /*
-      ==================================================
-      ЕСЛИ ФОТО НЕ НАЙДЕНО
-      ==================================================
-    */
-
-    galleryImage.addEventListener("error", () => {
-
-      console.error(
-        "Не удалось загрузить изображение:",
-        photos[currentPhoto]
-      );
-
-      galleryImage.style.opacity = "1";
-
-    });
-
-
-    /*
-      ==================================================
-      ЗАПУСК
-      ==================================================
-    */
 
     showPhoto(0);
+
+
+    /* =========================================
+       USER BAR — DRAG
+       ========================================= */
+
+    const userPanel =
+      document.getElementById("userPanel");
+
+
+    const userPanelHeader =
+      document.getElementById("userPanelHeader");
+
+
+    let isDragging = false;
+
+    let startX = 0;
+    let startY = 0;
+
+    let startLeft = 0;
+    let startTop = 0;
+
+
+    /* =========================================
+       НАЖАТИЕ НА USER
+
+       Фиксируем реальную позицию,
+       поэтому панель не скачет.
+       ========================================= */
+
+    userPanelHeader.addEventListener(
+      "pointerdown",
+      (event) => {
+
+        event.preventDefault();
+
+
+        const rect =
+          userPanel.getBoundingClientRect();
+
+
+        userPanel.style.left =
+          rect.left + "px";
+
+
+        userPanel.style.top =
+          rect.top + "px";
+
+
+        userPanel.style.right =
+          "auto";
+
+
+        userPanel.style.bottom =
+          "auto";
+
+
+        startX =
+          event.clientX;
+
+
+        startY =
+          event.clientY;
+
+
+        startLeft =
+          rect.left;
+
+
+        startTop =
+          rect.top;
+
+
+        isDragging = true;
+
+
+        userPanelHeader.setPointerCapture(
+          event.pointerId
+        );
+
+
+        userPanelHeader.style.cursor =
+          "grabbing";
+
+      }
+    );
+
+
+    /* =========================================
+       ПЕРЕМЕЩЕНИЕ
+       ========================================= */
+
+    userPanelHeader.addEventListener(
+      "pointermove",
+      (event) => {
+
+        if (!isDragging) {
+          return;
+        }
+
+
+        const deltaX =
+          event.clientX - startX;
+
+
+        const deltaY =
+          event.clientY - startY;
+
+
+        let newLeft =
+          startLeft + deltaX;
+
+
+        let newTop =
+          startTop + deltaY;
+
+
+        const panelWidth =
+          userPanel.offsetWidth;
+
+
+        const panelHeight =
+          userPanel.offsetHeight;
+
+
+        const maxLeft =
+          window.innerWidth - panelWidth;
+
+
+        const maxTop =
+          window.innerHeight - panelHeight;
+
+
+        newLeft =
+          Math.max(
+            0,
+            Math.min(newLeft, maxLeft)
+          );
+
+
+        newTop =
+          Math.max(
+            0,
+            Math.min(newTop, maxTop)
+          );
+
+
+        userPanel.style.left =
+          newLeft + "px";
+
+
+        userPanel.style.top =
+          newTop + "px";
+
+      }
+    );
+
+
+    /* =========================================
+       ОТПУСКАНИЕ
+       ========================================= */
+
+    userPanelHeader.addEventListener(
+      "pointerup",
+      (event) => {
+
+        isDragging = false;
+
+
+        try {
+
+          userPanelHeader.releasePointerCapture(
+            event.pointerId
+          );
+
+        } catch (error) {
+
+        }
+
+
+        userPanelHeader.style.cursor =
+          "move";
+
+      }
+    );
+
+
+    userPanelHeader.addEventListener(
+      "pointercancel",
+      () => {
+
+        isDragging = false;
+
+        userPanelHeader.style.cursor =
+          "move";
+
+      }
+    );
+
+
+    /* =========================================
+       СТИЛИ
+       ========================================= */
+
+    document
+      .getElementById("stylesButton")
+      .addEventListener(
+        "click",
+        () => {
+
+          console.log(
+            "Открыть раздел Стили"
+          );
+
+        }
+      );
+
+
+    /* =========================================
+       ГЕНЕРАЦИЯ
+       ========================================= */
+
+    document
+      .getElementById("generationButton")
+      .addEventListener(
+        "click",
+        () => {
+
+          console.log(
+            "Открыть раздел Генерация"
+          );
+
+        }
+      );
 
   </script>
 
 </body>
 </html>
-```
