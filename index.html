@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -249,7 +250,20 @@
 
       height: 100%;
 
-      object-fit: cover;
+      /* =====================================
+         НОВОЕ ИЗМЕНЕНИЕ
+         
+         Было:
+         object-fit: cover;
+         
+         Стало:
+         object-fit: contain;
+         
+         Полная фотография теперь помещается
+         целиком внутрь блока без обрезания.
+         ===================================== */
+
+      object-fit: contain;
 
       display: block;
 
@@ -498,12 +512,6 @@
 
     /* =========================================
        НОМЕР ПЛИТКИ
-       
-       НОВОЕ ИЗМЕНЕНИЕ:
-       НОМЕРА ПОЛНОСТЬЮ ОТКЛЮЧЕНЫ.
-       
-       Даже если элемент tile-number
-       останется в HTML, он не отображается.
        ========================================= */
 
     .tile-number {
@@ -877,9 +885,9 @@
       background:
         rgba(
           255,
-          59,
-          48,
-          0.1
+          255,
+          255,
+          0.10
         );
 
       border-color:
@@ -1422,8 +1430,6 @@
           alt="Фотография 01"
         >
 
-
-        <!-- НОМЕР БОЛЬШЕ НЕ ОТОБРАЖАЕТСЯ -->
 
         <span class="tile-number">
           01
@@ -1973,155 +1979,31 @@
 
       <ul class="error-list">
 
-        <li>
-          <span>
-            Six Fingers — шесть пальцев
-          </span>
-        </li>
-
-        <li>
-          <span>
-            Extra Fingers — лишние пальцы
-          </span>
-        </li>
-
-        <li>
-          <span>
-            Melted Hands — слипшиеся и плавящиеся кисти
-          </span>
-        </li>
-
-        <li>
-          <span>
-            Broken Hands — неправильная анатомия рук
-          </span>
-        </li>
-
-        <li>
-          <span>
-            Extra Limbs — лишние конечности
-          </span>
-        </li>
-
-        <li>
-          <span>
-            Broken Anatomy — невозможная анатомия
-          </span>
-        </li>
-
-        <li>
-          <span>
-            Double Face — двойное лицо
-          </span>
-        </li>
-
-        <li>
-          <span>
-            Melted Face — плавящееся лицо
-          </span>
-        </li>
-
-        <li>
-          <span>
-            Asymmetric Eyes — асимметричные глаза
-          </span>
-        </li>
-
-        <li>
-          <span>
-            Wrong Eyes — неправильное направление взгляда
-          </span>
-        </li>
-
-        <li>
-          <span>
-            Synthetic Smile — искажённые зубы и улыбка
-          </span>
-        </li>
-
-        <li>
-          <span>
-            Mutated Ears — деформированные или лишние уши
-          </span>
-        </li>
-
-        <li>
-          <span>
-            Face Collision — смешение нескольких лиц
-          </span>
-        </li>
-
-        <li>
-          <span>
-            Object Collision — слияние разных объектов
-          </span>
-        </li>
-
-        <li>
-          <span>
-            Object Duplication — повторение одного объекта
-          </span>
-        </li>
-
-        <li>
-          <span>
-            Floating Objects — парящие детали
-          </span>
-        </li>
-
-        <li>
-          <span>
-            Material Fusion — слияние материалов
-          </span>
-        </li>
-
-        <li>
-          <span>
-            Clothing Fusion — одежда, сросшаяся с телом
-          </span>
-        </li>
-
-        <li>
-          <span>
-            Impossible Clothing — невозможная конструкция одежды
-          </span>
-        </li>
-
-        <li>
-          <span>
-            Broken Jewelry — деформированные украшения
-          </span>
-        </li>
-
-        <li>
-          <span>
-            Broken Glasses — искажённые очки
-          </span>
-        </li>
-
-        <li>
-          <span>
-            Mirror Error — неправильное отражение
-          </span>
-        </li>
-
-        <li>
-          <span>
-            Shadow Error — неправильные тени
-          </span>
-        </li>
-
-        <li>
-          <span>
-            Light Error — неправильное освещение
-          </span>
-        </li>
-
-        <li>
-          <span>
-            Background Anatomy — странные люди
-          </span>
-        </li>
+        <li><span>Six Fingers — шесть пальцев</span></li>
+        <li><span>Extra Fingers — лишние пальцы</span></li>
+        <li><span>Melted Hands — слипшиеся и плавящиеся кисти</span></li>
+        <li><span>Broken Hands — неправильная анатомия рук</span></li>
+        <li><span>Extra Limbs — лишние конечности</span></li>
+        <li><span>Broken Anatomy — невозможная анатомия</span></li>
+        <li><span>Double Face — двойное лицо</span></li>
+        <li><span>Melted Face — плавящееся лицо</span></li>
+        <li><span>Asymmetric Eyes — асимметричные глаза</span></li>
+        <li><span>Wrong Eyes — неправильное направление взгляда</span></li>
+        <li><span>Synthetic Smile — искажённые зубы и улыбка</span></li>
+        <li><span>Mutated Ears — деформированные или лишние уши</span></li>
+        <li><span>Face Collision — смешение нескольких лиц</span></li>
+        <li><span>Object Collision — слияние разных объектов</span></li>
+        <li><span>Object Duplication — повторение одного объекта</span></li>
+        <li><span>Floating Objects — парящие детали</span></li>
+        <li><span>Material Fusion — слияние материалов</span></li>
+        <li><span>Clothing Fusion — одежда, сросшаяся с телом</span></li>
+        <li><span>Impossible Clothing — невозможная конструкция одежды</span></li>
+        <li><span>Broken Jewelry — деформированные украшения</span></li>
+        <li><span>Broken Glasses — искажённые очки</span></li>
+        <li><span>Mirror Error — неправильное отражение</span></li>
+        <li><span>Shadow Error — неправильные тени</span></li>
+        <li><span>Light Error — неправильное освещение</span></li>
+        <li><span>Background Anatomy — странные люди</span></li>
 
       </ul>
 
@@ -2227,8 +2109,6 @@
 
     /* =========================================
        СПИСОК ФОТОГРАФИЙ
-       
-       ЗДЕСЬ МЕНЯТЬ НАЗВАНИЯ ФОТОГРАФИЙ.
        ========================================= */
 
     const photos = [
@@ -2394,8 +2274,6 @@
           );
 
 
-        /* ЛЕВАЯ СТРЕЛКА */
-
         previousButton.addEventListener(
           "click",
           (
@@ -2416,8 +2294,6 @@
           }
         );
 
-
-        /* ПРАВАЯ СТРЕЛКА */
 
         nextButton.addEventListener(
           "click",
@@ -2446,51 +2322,11 @@
 
     /* =========================================
        АВТОМАТИЧЕСКОЕ ОБНОВЛЕНИЕ
-       
-       НОВЫЙ КОД
-       
-       15000 = 15 секунд.
-       
-       ВАЖНО:
-       Теперь НЕТ одного общего таймера
-       для всех картинок.
-       
-       Каждая плитка получает собственный
-       независимый таймер.
        ========================================= */
-
-
-    /*
-     * ИНТЕРВАЛ МЕЖДУ ОБНОВЛЕНИЯМИ.
-     *
-     * 15000 миллисекунд = 15 секунд.
-     */
 
     const AUTO_PHOTO_CHANGE_MS =
       15000;
 
-
-    /* =========================================
-       СЛУЧАЙНАЯ ЗАДЕРЖКА ПЕРВОГО ОБНОВЛЕНИЯ
-       
-       Каждая плитка стартует отдельно.
-       
-       Минимум: 0 секунд.
-       Максимум: 15 секунд.
-       
-       Например:
-       
-       Плитка 1 → 5.2 сек.
-       Плитка 2 → 3.1 сек.
-       Плитка 3 → 11.7 сек.
-       Плитка 4 → 8.4 сек.
-       
-       Затем каждая продолжает:
-       
-       +15 сек.
-       +15 сек.
-       +15 сек.
-       ========================================= */
 
     photoTiles.forEach(
       (
@@ -2504,19 +2340,9 @@
           AUTO_PHOTO_CHANGE_MS;
 
 
-        /*
-         * Первый переход происходит
-         * через случайное время.
-         */
-
         setTimeout(
           () => {
 
-
-            /*
-             * Переключаем фотографию
-             * на следующую.
-             */
 
             showTilePhoto(
               tileIndex,
@@ -2525,12 +2351,6 @@
               ] + 1
             );
 
-
-            /*
-             * После первого перехода
-             * запускаем собственный
-             * 15-секундный цикл этой плитки.
-             */
 
             setInterval(
               () => {
@@ -2560,9 +2380,6 @@
 
     /* =========================================
        ПЕРВОНАЧАЛЬНАЯ ЗАГРУЗКА
-       
-       Фотографии, которые уже находятся
-       в HTML, остаются первоначальными.
        ========================================= */
 
     photoTiles.forEach(
@@ -2899,3 +2716,4 @@
 </body>
 
 </html>
+```
