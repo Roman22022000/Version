@@ -1065,6 +1065,290 @@
 
     }
 
+  
+    /* =========================================================
+       ДОПОЛНИТЕЛЬНАЯ ШАПКА ПОСЛЕ ЦИТАТЫ
+       ========================================================= */
+
+    .version-prompt-header {
+      position: relative;
+      width: 100%;
+      height: 40px;
+      background: #17212b;
+      border-top: 1px solid #232e3c;
+      border-bottom: 1px solid #232e3c;
+      overflow: visible;
+      z-index: 100;
+    }
+
+    .version-prompt-window {
+      position: relative;
+      width: 100%;
+      height: 40px;
+      overflow: hidden;
+    }
+
+    .version-prompt-track {
+      display: flex;
+      width: max-content;
+      height: 40px;
+      animation: version-prompt-scroll-left 60s linear infinite;
+      will-change: transform;
+    }
+
+    @keyframes version-prompt-scroll-left {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    .version-prompt-card {
+      position: relative;
+      width: 520px;
+      height: 40px;
+      flex: 0 0 520px;
+      overflow: visible;
+      user-select: none;
+    }
+
+    .version-prompt-card img {
+      display: block;
+      width: 520px;
+      height: 40px;
+      object-fit: cover;
+      opacity: 0.65;
+      transform: none;
+      filter: none;
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    /* При наведении сама картинка не меняется. */
+    .version-prompt-card:hover img {
+      opacity: 0.65;
+      transform: none;
+      filter: none;
+    }
+
+    .version-prompt-card.selected img {
+      opacity: 1;
+      box-shadow:
+        inset 0 0 0 1px #5288c1,
+        0 0 10px rgba(82, 136, 193, 0.45);
+    }
+
+    .version-prompt-arrow {
+      position: absolute;
+      left: 50%;
+      top: 40px;
+      width: 20px;
+      height: 14px;
+      transform: translateX(-50%);
+      display: none;
+      cursor: pointer;
+      z-index: 20;
+      pointer-events: auto;
+    }
+
+    .version-prompt-arrow::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 0;
+      height: 0;
+      transform: translateX(-50%);
+      border-left: 9px solid transparent;
+      border-right: 9px solid transparent;
+      border-top: 12px solid #5288c1;
+      filter: drop-shadow(0 0 4px rgba(82, 136, 193, 0.45));
+    }
+
+    .version-prompt-arrow::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: -2px;
+      width: 4px;
+      height: 4px;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: #6ab2f2;
+      box-shadow: 0 0 5px #5288c1;
+    }
+
+    .version-prompt-card.has-prompt .version-prompt-arrow {
+      display: block;
+    }
+
+    .version-prompt-arrow:hover::before {
+      border-top-color: #6ab2f2;
+      filter:
+        drop-shadow(0 0 7px #5288c1)
+        brightness(1.25);
+    }
+
+    /* Модальное окно шапки */
+    .version-prompt-modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.72);
+      z-index: 10000;
+      backdrop-filter: blur(5px);
+    }
+
+    .version-prompt-modal.active {
+      display: flex;
+    }
+
+    .version-prompt-modal-box {
+      width: min(620px, 100%);
+      background: #17212b;
+      border: 1px solid #2b3a4a;
+      border-radius: 12px;
+      box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.55),
+        0 0 25px rgba(82, 136, 193, 0.12);
+      overflow: hidden;
+      animation: version-prompt-modal-in 0.18s ease-out;
+    }
+
+    @keyframes version-prompt-modal-in {
+      from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .version-prompt-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 48px;
+      padding: 0 15px;
+      background: #1c2733;
+      border-bottom: 1px solid #232e3c;
+    }
+
+    .version-prompt-modal-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: #f5f5f5;
+    }
+
+    .version-prompt-modal-close {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 50%;
+      background: transparent;
+      color: #8fa3b5;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .version-prompt-modal-close:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #f5f5f5;
+    }
+
+    .version-prompt-modal-body {
+      padding: 15px;
+    }
+
+    .version-prompt-textarea {
+      display: block;
+      width: 100%;
+      min-height: 180px;
+      resize: vertical;
+      padding: 14px;
+      border: 1px solid #2b3a4a;
+      border-radius: 8px;
+      outline: none;
+      background: #0e1621;
+      color: #f5f5f5;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .version-prompt-textarea:focus {
+      border-color: #5288c1;
+      box-shadow: 0 0 0 2px rgba(82, 136, 193, 0.12);
+    }
+
+    .version-prompt-textarea[readonly] {
+      cursor: default;
+      opacity: 0.95;
+    }
+
+    .version-prompt-modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      padding: 12px 15px;
+      background: #1c2733;
+      border-top: 1px solid #232e3c;
+    }
+
+    .version-prompt-button {
+      height: 36px;
+      padding: 0 16px;
+      border: 1px solid #2b3a4a;
+      border-radius: 7px;
+      background: #17212b;
+      color: #f5f5f5;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .version-prompt-button:hover {
+      background: #232e3c;
+      border-color: #5288c1;
+    }
+
+    .version-prompt-button.primary {
+      background: #5288c1;
+      border-color: #5288c1;
+      color: #fff;
+    }
+
+    .version-prompt-button.primary:hover {
+      background: #6ab2f2;
+      border-color: #6ab2f2;
+    }
+
+    @media (max-width: 700px) {
+      .version-prompt-card,
+      .version-prompt-card img {
+        width: 520px;
+        height: 40px;
+      }
+
+      .version-prompt-modal {
+        padding: 10px;
+      }
+
+      .version-prompt-modal-box {
+        width: 100%;
+      }
+    }
+
   </style>
 
 </head>
@@ -1193,6 +1477,72 @@
     </p>
 
   </header>
+
+  <!-- =========================================================
+       ШАПКА ПРОМПТОВ ПОСЛЕ ЦИТАТЫ
+       ========================================================= -->
+
+  <section class="version-prompt-header" aria-label="Шапка изображений и промптов">
+    <div class="version-prompt-window">
+      <div
+        class="version-prompt-track"
+        id="versionPromptTrack"
+      ></div>
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       МОДАЛЬНОЕ ОКНО ПРОМПТА ШАПКИ
+       ========================================================= -->
+
+  <div
+    class="version-prompt-modal"
+    id="versionPromptModal"
+  >
+    <div class="version-prompt-modal-box">
+
+      <div class="version-prompt-modal-header">
+        <div
+          class="version-prompt-modal-title"
+          id="versionPromptModalTitle"
+        >
+          Промпт
+        </div>
+
+        <button
+          class="version-prompt-modal-close"
+          id="versionPromptClose"
+          type="button"
+          aria-label="Закрыть"
+        >×</button>
+      </div>
+
+      <div class="version-prompt-modal-body">
+        <textarea
+          class="version-prompt-textarea"
+          id="versionPromptTextarea"
+          placeholder="Введите промпт..."
+        ></textarea>
+      </div>
+
+      <div class="version-prompt-modal-footer">
+        <button
+          class="version-prompt-button"
+          id="versionPromptCancel"
+          type="button"
+        >Отмена</button>
+
+        <button
+          class="version-prompt-button primary"
+          id="versionPromptSave"
+          type="button"
+        >Сохранить</button>
+      </div>
+
+    </div>
+  </div>
+
 
 
   <!-- =========================================
@@ -1923,6 +2273,258 @@
        ========================================= -->
 
   <script>
+
+    /* =========================================================
+       ДОПОЛНИТЕЛЬНАЯ ШАПКА ПОСЛЕ ЦИТАТЫ
+       ========================================================= */
+
+    const versionPromptImageNames = [
+      "001.png",
+    "002.png",
+    "003.png",
+    "004.png",
+    "005.png",
+    "006.png",
+    "007.png"
+    ];
+
+    const VERSION_PROMPT_STORAGE_KEY = "version_header_prompts";
+
+    const versionPromptTrack =
+      document.getElementById("versionPromptTrack");
+
+    const versionPromptModal =
+      document.getElementById("versionPromptModal");
+
+    const versionPromptTextarea =
+      document.getElementById("versionPromptTextarea");
+
+    const versionPromptModalTitle =
+      document.getElementById("versionPromptModalTitle");
+
+    const versionPromptClose =
+      document.getElementById("versionPromptClose");
+
+    const versionPromptCancel =
+      document.getElementById("versionPromptCancel");
+
+    const versionPromptSave =
+      document.getElementById("versionPromptSave");
+
+    let versionHeaderPrompts = {};
+    let versionCurrentPromptIndex = null;
+
+    function loadVersionHeaderPrompts() {
+      try {
+        const saved =
+          localStorage.getItem(
+            VERSION_PROMPT_STORAGE_KEY
+          );
+
+        versionHeaderPrompts =
+          saved ? JSON.parse(saved) : {};
+      } catch (error) {
+        console.error(
+          "Ошибка загрузки промптов шапки:",
+          error
+        );
+        versionHeaderPrompts = {};
+      }
+    }
+
+    function saveVersionHeaderPrompts() {
+      try {
+        localStorage.setItem(
+          VERSION_PROMPT_STORAGE_KEY,
+          JSON.stringify(versionHeaderPrompts)
+        );
+      } catch (error) {
+        console.error(
+          "Ошибка сохранения промптов шапки:",
+          error
+        );
+      }
+    }
+
+    function createVersionPromptCard(imageName, index) {
+      const card =
+        document.createElement("div");
+
+      card.className =
+        "version-prompt-card";
+
+      if (
+        versionHeaderPrompts[index] &&
+        versionHeaderPrompts[index].trim() !== ""
+      ) {
+        card.classList.add("has-prompt");
+      }
+
+      const image =
+        document.createElement("img");
+
+      image.src = imageName;
+      image.alt = "Изображение шапки " + (index + 1);
+      image.draggable = false;
+
+      const arrow =
+        document.createElement("div");
+
+      arrow.className =
+        "version-prompt-arrow";
+
+      arrow.title =
+        "Открыть сохранённый промпт";
+
+      image.addEventListener(
+        "click",
+        function () {
+          openVersionPromptEditor(index);
+        }
+      );
+
+      arrow.addEventListener(
+        "click",
+        function (event) {
+          event.stopPropagation();
+          openVersionPromptViewer(index);
+        }
+      );
+
+      card.appendChild(image);
+      card.appendChild(arrow);
+
+      return card;
+    }
+
+    function buildVersionPromptHeader() {
+      versionPromptTrack.innerHTML = "";
+
+      for (let copy = 0; copy < 2; copy++) {
+        versionPromptImageNames.forEach(
+          function (imageName, index) {
+            versionPromptTrack.appendChild(
+              createVersionPromptCard(
+                imageName,
+                index
+              )
+            );
+          }
+        );
+      }
+    }
+
+    function openVersionPromptEditor(index) {
+      versionCurrentPromptIndex = index;
+
+      versionPromptModalTitle.textContent =
+        "Промпт — " +
+        versionPromptImageNames[index];
+
+      versionPromptTextarea.value =
+        versionHeaderPrompts[index] || "";
+
+      versionPromptTextarea.readOnly = false;
+      versionPromptSave.style.display = "inline-flex";
+      versionPromptCancel.style.display = "inline-flex";
+
+      versionPromptModal.classList.add("active");
+
+      setTimeout(function () {
+        versionPromptTextarea.focus();
+      }, 50);
+    }
+
+    function openVersionPromptViewer(index) {
+      versionCurrentPromptIndex = null;
+
+      versionPromptModalTitle.textContent =
+        "Сохранённый промпт — " +
+        versionPromptImageNames[index];
+
+      versionPromptTextarea.value =
+        versionHeaderPrompts[index] || "";
+
+      versionPromptTextarea.readOnly = true;
+      versionPromptSave.style.display = "none";
+      versionPromptCancel.style.display = "inline-flex";
+
+      versionPromptModal.classList.add("active");
+    }
+
+    function closeVersionPromptModal() {
+      versionPromptModal.classList.remove("active");
+
+      versionCurrentPromptIndex = null;
+      versionPromptTextarea.value = "";
+      versionPromptTextarea.readOnly = false;
+      versionPromptSave.style.display = "inline-flex";
+    }
+
+    function saveVersionPrompt() {
+      if (versionCurrentPromptIndex === null) {
+        return;
+      }
+
+      const text =
+        versionPromptTextarea.value.trim();
+
+      if (text === "") {
+        delete versionHeaderPrompts[
+          versionCurrentPromptIndex
+        ];
+      } else {
+        versionHeaderPrompts[
+          versionCurrentPromptIndex
+        ] = text;
+      }
+
+      saveVersionHeaderPrompts();
+      buildVersionPromptHeader();
+      closeVersionPromptModal();
+    }
+
+    versionPromptSave.addEventListener(
+      "click",
+      saveVersionPrompt
+    );
+
+    versionPromptCancel.addEventListener(
+      "click",
+      closeVersionPromptModal
+    );
+
+    versionPromptClose.addEventListener(
+      "click",
+      closeVersionPromptModal
+    );
+
+    versionPromptModal.addEventListener(
+      "click",
+      function (event) {
+        if (event.target === versionPromptModal) {
+          closeVersionPromptModal();
+        }
+      }
+    );
+
+    versionPromptTextarea.addEventListener(
+      "keydown",
+      function (event) {
+        if (
+          event.ctrlKey &&
+          event.key === "Enter"
+        ) {
+          event.preventDefault();
+          saveVersionPrompt();
+        }
+      }
+    );
+
+    loadVersionHeaderPrompts();
+    buildVersionPromptHeader();
+
+
 
 
     /* =====================================================
